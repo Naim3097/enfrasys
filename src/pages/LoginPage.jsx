@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { toast } from 'react-toastify';
@@ -9,8 +9,39 @@ function LoginPage() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
+  const [firebaseError, setFirebaseError] = useState(null);
   const { login, signup } = useAuth();
   const navigate = useNavigate();
+
+  // Debug Firebase initialization on component mount
+  useEffect(() => {
+    try {
+      console.log('🔥 LoginPage mounted, checking Firebase...');
+      console.log('Auth context available:', !!login);
+      console.log('Environment:', process.env.NODE_ENV);
+      console.log('Vercel deployment:', process.env.VERCEL === '1');
+    } catch (error) {
+      console.error('❌ Firebase initialization error:', error);
+      setFirebaseError(error.message);
+    }
+  }, [login]);
+
+  // Show Firebase error if initialization failed
+  if (firebaseError) {
+    return (
+      <div className="login-container">
+        <div className="login-form" style={{ padding: '2rem', textAlign: 'center' }}>
+          <h2>Configuration Error</h2>
+          <p style={{ color: 'red', marginBottom: '1rem' }}>
+            Firebase initialization failed: {firebaseError}
+          </p>
+          <p style={{ color: '#666', fontSize: '0.9rem' }}>
+            Please check the Firebase configuration in Vercel environment variables.
+          </p>
+        </div>
+      </div>
+    );
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -48,9 +79,9 @@ function LoginPage() {
           toast.error('No account found. Try creating an account first.');
           setIsSignUp(true);
         } else if (error.code === 'auth/wrong-password') {
-          toast.error('Incorrect password.');
-        } else if (error.code === 'auth/invalid-email') {
-          toast.error('Invalid email address.');        } else {
+          toast.error('Incorrect password.');        } else if (error.code === 'auth/invalid-email') {
+          toast.error('Invalid email address.');
+        } else {
           toast.error(`Failed to log in: ${error.message}`);
         }
       }
@@ -76,11 +107,11 @@ function LoginPage() {
         await setupDemoAccount();
         await login('demo@byki.com', 'demo123456');
         toast.success('Demo account created and logged in!');
-        navigate('/');
-      } catch (setupError) {
+        navigate('/');      } catch (setupError) {
         console.error('Demo setup failed:', setupError);
         toast.error('Demo login failed. Please try manual login.');
-      }    } finally {
+      }
+    } finally {
       setLoading(false);
     }
   };
@@ -138,10 +169,10 @@ function LoginPage() {
                   border: 'none',
                   padding: '0.25rem 0.5rem',
                   borderRadius: '4px',
-                  fontSize: '0.8rem',
-                  cursor: loading ? 'not-allowed' : 'pointer',
+                  fontSize: '0.8rem',                  cursor: loading ? 'not-allowed' : 'pointer',
                   opacity: loading ? 0.6 : 1
-                }}              >
+                }}
+              >
                 {loading ? 'Logging in...' : 'Demo Login'}
               </button>
             </div>

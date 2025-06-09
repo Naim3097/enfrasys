@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { toast } from 'react-toastify';
-import { setupDemoAccount, testDemoLogin } from '../utils/demoAccountSetup';
+import { setupDemoAccount } from '../utils/demoAccountSetup';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -28,7 +28,8 @@ function LoginPage() {
         await login(email, password);
         toast.success('Logged in successfully');
       }
-      navigate('/');    } catch (error) {
+      navigate('/');
+    } catch (error) {
       console.error('Auth error:', error);
       console.error('Error code:', error.code);
       console.error('Error message:', error.message);
@@ -49,11 +50,11 @@ function LoginPage() {
         } else if (error.code === 'auth/wrong-password') {
           toast.error('Incorrect password.');
         } else if (error.code === 'auth/invalid-email') {
-          toast.error('Invalid email address.');
-        } else {
+          toast.error('Invalid email address.');        } else {
           toast.error(`Failed to log in: ${error.message}`);
         }
-      }    } finally {
+      }
+    } finally {
       setLoading(false);
     }
   };
@@ -79,18 +80,21 @@ function LoginPage() {
       } catch (setupError) {
         console.error('Demo setup failed:', setupError);
         toast.error('Demo login failed. Please try manual login.');
-      }
-    } finally {
+      }    } finally {
       setLoading(false);
     }
   };
+
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Sparepart Management System</h2>        <p style={{ textAlign: 'center', marginBottom: '1rem', color: '#666' }}>
+        <h2>Sparepart Management System</h2>
+        
+        <p style={{ textAlign: 'center', marginBottom: '1rem', color: '#666' }}>
           {isSignUp ? 'Create a new account' : 'Sign in to your account'}
         </p>
-          {/* Demo Account Quick Access */}
+
+        {/* Demo Account Quick Access */}
         {!isSignUp && (
           <div style={{ 
             background: '#f0f8ff', 
@@ -137,12 +141,12 @@ function LoginPage() {
                   fontSize: '0.8rem',
                   cursor: loading ? 'not-allowed' : 'pointer',
                   opacity: loading ? 0.6 : 1
-                }}
-              >
+                }}              >
                 {loading ? 'Logging in...' : 'Demo Login'}
               </button>
             </div>
-          </div>        )}
+          </div>
+        )}
         
         <div className="form-group">
           <label htmlFor="email">Email</label>

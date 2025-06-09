@@ -23,7 +23,7 @@ import WorkOrderDetailPage from './pages/WorkOrderDetailPage';
 import WorkOrderNewPage from './pages/WorkOrderNewPage';
 import ScheduleCalendarPage from './pages/ScheduleCalendarPage';
 import Layout from './components/Layout';
-import { AuthProvider } from './contexts/AuthContext';
+import { AuthProvider } from './contexts/AuthContextSafe';
 
 function App() {
   return (

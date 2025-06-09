@@ -1,43 +1,78 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContextSafe';
 import { toast } from 'react-toastify';
 import { setupDemoAccount } from '../utils/demoAccountSetup';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [password, setPassword] = useState('');  const [loading, setLoading] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
-  const [firebaseError, setFirebaseError] = useState(null);
-  const { login, signup } = useAuth();
+  const { login, signup, firebaseError, isFirebaseInitialized } = useAuth();
   const navigate = useNavigate();
 
   // Debug Firebase initialization on component mount
   useEffect(() => {
-    try {
-      console.log('🔥 LoginPage mounted, checking Firebase...');
-      console.log('Auth context available:', !!login);
-      console.log('Environment:', process.env.NODE_ENV);
-      console.log('Vercel deployment:', process.env.VERCEL === '1');
-    } catch (error) {
-      console.error('❌ Firebase initialization error:', error);
-      setFirebaseError(error.message);
+    console.log('🔥 LoginPage mounted, checking Firebase...');
+    console.log('Firebase initialized:', isFirebaseInitialized);
+    console.log('Firebase error:', firebaseError);
+    console.log('Auth functions available:', { hasLogin: !!login, hasSignup: !!signup });
+    console.log('Environment:', process.env.NODE_ENV);
+    console.log('Vercel deployment:', process.env.VERCEL === '1');    
+    if (firebaseError) {
+      console.error('❌ Firebase initialization error in LoginPage:', firebaseError);
     }
-  }, [login]);
+  }, [login, firebaseError, isFirebaseInitialized, signup]);
 
   // Show Firebase error if initialization failed
-  if (firebaseError) {
+  if (firebaseError || !isFirebaseInitialized) {
     return (
       <div className="login-container">
         <div className="login-form" style={{ padding: '2rem', textAlign: 'center' }}>
-          <h2>Configuration Error</h2>
-          <p style={{ color: 'red', marginBottom: '1rem' }}>
-            Firebase initialization failed: {firebaseError}
+          <h2>🚨 Firebase Configuration Error</h2>
+          <div style={{ 
+            backgroundColor: '#fff3cd', 
+            border: '1px solid #ffeaa7',
+            borderRadius: '8px',
+            padding: '1.5rem',
+            margin: '1rem 0',
+            textAlign: 'left'
+          }}>
+            <p style={{ color: '#856404', marginBottom: '1rem', fontWeight: 'bold' }}>
+              Firebase failed to initialize properly on Vercel.
+            </p>
+            <p style={{ color: '#666', fontSize: '0.9rem', marginBottom: '1rem' }}>
+              <strong>Error:</strong> {firebaseError || 'Firebase initialization failed'}
+            </p>
+            
+            <h4 style={{ color: '#856404', marginBottom: '0.5rem' }}>🔧 Required fixes:</h4>
+            <ol style={{ color: '#666', fontSize: '0.9rem', paddingLeft: '1.5rem' }}>
+              <li>Set Firebase environment variables in Vercel Dashboard</li>
+              <li>Add Vercel domain to Firebase Console authorized domains</li>
+              <li>Ensure Firebase project has billing enabled</li>
+              <li>Verify Firebase API keys are correct</li>
+            </ol>
+          </div>
+          
+          <p style={{ color: '#666', fontSize: '0.8rem', marginTop: '1rem' }}>
+            Environment: {process.env.NODE_ENV} | Vercel: {process.env.VERCEL === '1' ? 'Yes' : 'No'}
           </p>
-          <p style={{ color: '#666', fontSize: '0.9rem' }}>
-            Please check the Firebase configuration in Vercel environment variables.
-          </p>
+          
+          <button 
+            onClick={() => window.location.reload()}
+            style={{
+              backgroundColor: '#1976d2',
+              color: 'white',
+              border: 'none',
+              padding: '0.75rem 1.5rem',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              fontSize: '1rem',
+              marginTop: '1rem'
+            }}
+          >
+            🔄 Retry
+          </button>
         </div>
       </div>
     );

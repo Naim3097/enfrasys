@@ -60,10 +60,45 @@ function LoginPage() {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Sparepart Management System</h2>
-        <p style={{ textAlign: 'center', marginBottom: '1rem', color: '#666' }}>
+        <h2>Sparepart Management System</h2>        <p style={{ textAlign: 'center', marginBottom: '1rem', color: '#666' }}>
           {isSignUp ? 'Create a new account' : 'Sign in to your account'}
         </p>
+        
+        {/* Demo Account Quick Access */}
+        {!isSignUp && (
+          <div style={{ 
+            background: '#f0f8ff', 
+            padding: '1rem', 
+            borderRadius: '8px', 
+            marginBottom: '1rem',
+            border: '1px solid #b3d9ff'
+          }}>
+            <p style={{ margin: '0 0 0.5rem 0', fontSize: '0.9rem', fontWeight: 'bold', color: '#0066cc' }}>
+              📋 Demo Account
+            </p>
+            <p style={{ margin: '0 0 0.5rem 0', fontSize: '0.8rem', color: '#666' }}>
+              Email: <code>demo@byki.com</code> | Password: <code>demo123</code>
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setEmail('demo@byki.com');
+                setPassword('demo123');
+              }}
+              style={{
+                background: '#0066cc',
+                color: 'white',
+                border: 'none',
+                padding: '0.25rem 0.5rem',
+                borderRadius: '4px',
+                fontSize: '0.8rem',
+                cursor: 'pointer'
+              }}
+            >
+              Use Demo Account
+            </button>
+          </div>
+        )}
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input

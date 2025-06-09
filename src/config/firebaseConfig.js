@@ -3,14 +3,25 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, connectAuthEmulator } from 'firebase/auth';
 import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 
+// Production Firebase Config (your actual project)
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY || "demo-api-key",
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN || "demo-project.firebaseapp.com",
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID || "demo-project",
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET || "demo-project.appspot.com",
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID || "123456789",
-  appId: process.env.REACT_APP_FIREBASE_APP_ID || "demo-app-id"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY || "AIzaSyBloaW6TgHLVPO9HcCtlsQcLl9J32SY9UQ",
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN || "sparepart-management-system.firebaseapp.com",
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID || "sparepart-management-system",
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET || "sparepart-management-system.firebasestorage.app",
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID || "673702003106",
+  appId: process.env.REACT_APP_FIREBASE_APP_ID || "1:673702003106:web:4d379e315659d0bc6c72fb"
 };
+
+// Debug: Log the configuration being used
+console.log('🔧 Firebase Config:', {
+  projectId: firebaseConfig.projectId,
+  authDomain: firebaseConfig.authDomain,
+  apiKeyExists: !!firebaseConfig.apiKey,
+  usingEmulator: process.env.REACT_APP_USE_EMULATOR === 'true',
+  environment: process.env.NODE_ENV,
+  isVercel: typeof window !== 'undefined' && window.location.hostname.includes('vercel')
+});
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

@@ -1,0 +1,122 @@
+/* Import base styles */
+@import url('index.css');
+
+/* Page-specific styles for Blog page */
+.page-header {
+    background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+    color: white;
+    padding: 6rem 0 4rem;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.content {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+.content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.blog-post {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.post-image {
+    height: 200px;
+    background: linear-gradient(45deg, #fd79a8, #fdcb6e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+}
+
+.post-image::before {
+    content: "📝";
+}
+
+.post-content {
+    padding: 1.5rem;
+}
+
+.post-date {
+    color: #fd79a8;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.post-content h3 {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+}
+
+.post-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.read-more {
+    color: #fd79a8;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: #e84393;
+}
+
+/* Active nav link */
+.nav-links li a.active {
+    background-color: #fd79a8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .post-image {
+        height: 180px;
+    }
+}

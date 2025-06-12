@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System Test</title>
+    <style>
+        /* CSS Custom Properties (Variables) */
+        :root {
+          --primary-dark: #213150;
+          --primary-blue: #2a417c;
+          --secondary-dark: #1a2545;
+          --accent-blue: #b9e8f9;
+          --neutral-light: #efefef;
+          --white: #ffffff;
+          --font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          --font-weight-bold: 700;
+          --font-weight-medium: 500;
+          --font-size-5xl: 3rem;
+          --font-size-xl: 1.25rem;
+          --spacing-lg: 1.5rem;
+          --spacing-md: 1rem;
+          --spacing-xl: 2rem;
+          --spacing-2xl: 3rem;
+          --spacing-3xl: 4rem;
+          --border-radius-lg: 12px;
+          --border-radius-md: 8px;
+          --shadow-md: 0 4px 6px rgba(33, 49, 80, 0.1);
+          --shadow-xl: 0 20px 25px rgba(33, 49, 80, 0.15);
+          --transition-base: 0.3s ease-out;
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: var(--font-family);
+          color: var(--primary-dark);
+          background-color: var(--white);
+          line-height: 1.6;
+        }
+
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 var(--spacing-md);
+        }
+
+        /* Hero Section */
+        .hero {
+          background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+          color: var(--white);
+          padding: var(--spacing-3xl) 0;
+          text-align: center;
+        }
+
+        .hero-title {
+          font-size: var(--font-size-5xl);
+          font-weight: var(--font-weight-bold);
+          margin-bottom: var(--spacing-lg);
+          line-height: 1.1;
+        }
+
+        .hero-subtitle {
+          font-size: var(--font-size-xl);
+          margin-bottom: var(--spacing-2xl);
+          opacity: 0.9;
+        }
+
+        /* Button */
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: var(--spacing-md) var(--spacing-xl);
+          font-family: var(--font-family);
+          font-weight: var(--font-weight-medium);
+          text-decoration: none;
+          border: none;
+          border-radius: var(--border-radius-md);
+          cursor: pointer;
+          transition: all 0.3s ease;
+          margin: 0 0.5rem;
+        }
+
+        .btn-primary {
+          background-color: var(--primary-blue);
+          color: var(--white);
+        }
+
+        .btn-primary:hover {
+          background-color: var(--primary-dark);
+          transform: translateY(-2px);
+        }
+
+        .btn-accent {
+          background-color: var(--accent-blue);
+          color: var(--primary-dark);
+        }
+
+        .btn-accent:hover {
+          background-color: #a8dff5;
+          transform: translateY(-2px);
+        }
+
+        /* Card */
+        .card {
+          background-color: var(--white);
+          border-radius: var(--border-radius-lg);
+          box-shadow: var(--shadow-md);
+          padding: var(--spacing-xl);
+          margin: var(--spacing-lg);
+          transition: all var(--transition-base);
+        }
+
+        .card:hover {
+          transform: translateY(-4px);
+          box-shadow: var(--shadow-xl);
+        }
+
+        .section {
+          padding: var(--spacing-3xl) 0;
+        }
+
+        .section-title {
+          font-size: 2.25rem;
+          font-weight: var(--font-weight-bold);
+          margin-bottom: var(--spacing-lg);
+          color: var(--primary-dark);
+          text-align: center;
+        }
+
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: var(--spacing-lg);
+          margin-top: var(--spacing-xl);
+        }
+
+        .color-demo {
+          height: 100px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: bold;
+          border-radius: var(--border-radius-md);
+          text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .badge {
+          display: inline-block;
+          padding: 0.25rem 0.75rem;
+          font-size: 0.75rem;
+          font-weight: var(--font-weight-medium);
+          border-radius: 4px;
+          text-transform: uppercase;
+          letter-spacing: 0.025em;
+          margin: 0.25rem;
+        }
+
+        .badge-primary {
+          background-color: var(--primary-blue);
+          color: var(--white);
+        }
+
+        .badge-accent {
+          background-color: var(--accent-blue);
+          color: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Global Design System</h1>
+            <p class="hero-subtitle">Technology, Data, Cloud & AI Website Components</p>
+            <div>
+                <button class="btn btn-accent">Explore Components</button>
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Colors -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Brand Color Palette</h2>
+            <div class="grid">
+                <div class="color-demo" style="background-color: #213150;">#213150 - Primary Dark</div>
+                <div class="color-demo" style="background-color: #2a417c;">#2a417c - Primary Blue</div>
+                <div class="color-demo" style="background-color: #1a2545;">#1a2545 - Secondary Dark</div>
+                <div class="color-demo" style="background-color: #b9e8f9; color: #213150;">#b9e8f9 - Accent Blue</div>
+                <div class="color-demo" style="background-color: #efefef; color: #213150;">#efefef - Neutral Light</div>
+                <div class="color-demo" style="background-color: #ffffff; color: #213150; border: 2px solid #efefef;">#ffffff - White</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component Showcase -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">UI Components</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>🤖 AI Solutions</h3>
+                    <p>Machine learning algorithms and intelligent automation platforms built for the future.</p>
+                    <div style="margin-top: 1rem;">
+                        <span class="badge badge-primary">AI Powered</span>
+                        <span class="badge badge-accent">Machine Learning</span>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>☁️ Cloud Infrastructure</h3>
+                    <p>Scalable cloud solutions with microservices architecture and distributed systems.</p>
+                    <div style="margin-top: 1rem;">
+                        <span class="badge badge-primary">Cloud Native</span>
+                        <span class="badge badge-accent">Scalable</span>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <button class="btn btn-accent">Explore</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>📊 Data Analytics</h3>
+                    <p>Big data processing, real-time analytics, and business intelligence platforms.</p>
+                    <div style="margin-top: 1rem;">
+                        <span class="badge badge-primary">Real-time</span>
+                        <span class="badge badge-accent">Big Data</span>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <button class="btn btn-primary">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Typography & Buttons -->
+    <section class="section" style="background-color: var(--neutral-light);">
+        <div class="container">
+            <h2 class="section-title">Typography & Button Styles</h2>
+            <div style="text-align: center; margin-top: 2rem;">
+                <h1 style="font-size: 3rem; margin-bottom: 1rem;">Heading 1 - Large Title</h1>
+                <h2 style="font-size: 2.25rem; margin-bottom: 1rem;">Heading 2 - Section Title</h2>
+                <h3 style="font-size: 1.875rem; margin-bottom: 1rem;">Heading 3 - Subsection</h3>
+                <p style="font-size: 1.125rem; margin-bottom: 2rem; color: #6b7280;">Large paragraph text for descriptions and important content sections.</p>
+                
+                <div style="margin-top: 2rem;">
+                    <button class="btn btn-primary">Primary Button</button>
+                    <button class="btn btn-accent">Accent Button</button>
+                    <button class="btn" style="background: transparent; color: var(--primary-blue); border: 2px solid var(--primary-blue);">Secondary Button</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--primary-dark); color: var(--white); padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <h3 style="margin-bottom: 1rem;">Global Design System Ready</h3>
+            <p style="margin-bottom: 2rem; opacity: 0.9;">Professional, minimal, and clean design for technology companies</p>
+            <button class="btn btn-accent">Use This System</button>
+        </div>
+    </footer>
+</body>
+</html>

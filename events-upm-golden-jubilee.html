@@ -1,0 +1,490 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPM Golden Jubilee - 50 Years of Excellence - Enfrasys Events</title>
+    <meta name="description" content="Enfrasys joined Universiti Putra Malaysia in celebrating its 50th anniversary, showcasing future-ready digital solutions to advance UPM's academic aspirations.">    <link rel="stylesheet" href="globaldesign.css">    <style>
+        /* Event Page Specific Styles */
+        .event-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }        .event-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            padding: 2rem;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .status-badge {
+            background: rgba(255,255,255,0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.2);
+        }        .status-completed {
+            background: var(--accent-blue);
+            color: var(--primary-dark);
+            border-color: var(--accent-blue);
+        }
+
+        .status-upcoming {
+            background: var(--warning-color, #f59e0b);
+            color: white;
+            border-color: var(--warning-color, #f59e0b);
+        }
+
+        .status-live {
+            background: var(--danger-color, #ef4444);
+            color: white;
+            border-color: var(--danger-color, #ef4444);
+        }
+
+        .event-meta {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .event-date {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .date-day {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .date-month {
+            display: block;
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .event-time {
+            text-align: center;
+        }
+
+        .time {
+            display: block;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .timezone {
+            display: block;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        .event-details {
+            padding: 2rem;
+        }        .event-details h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 0.5rem;
+        }
+
+        .event-details > div {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .event-details > div:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .speakers-grid, .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }        .speaker, .highlight {
+            background: var(--neutral-light);
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--primary-blue);
+            transition: transform 0.2s ease;
+        }
+
+        .speaker:hover, .highlight:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }        .speaker h4, .highlight h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .speaker p, .highlight p {
+            color: var(--primary-dark);
+            opacity: 0.7;
+            font-size: 0.875rem;
+            margin: 0;
+        }        .event-rsvp {
+            background: var(--neutral-light);
+            padding: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }        .event-rsvp h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 0.5rem;
+        }.status-message {
+            background: rgba(185, 232, 249, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .status-message.completed {
+            background: rgba(185, 232, 249, 0.15);
+            border-color: var(--accent-blue);
+        }
+
+        .status-message.upcoming {
+            background: #fefce8;
+            border-color: #fde047;
+        }
+
+        .follow-up-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }        .event-summary {
+            background: var(--primary-dark);
+            color: white;
+            padding: 2rem;
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            display: block;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .event-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .event-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .follow-up-actions {
+                flex-direction: column;
+            }
+
+            .follow-up-actions .btn {
+                width: 100%;
+            }
+
+            .event-details {
+                padding: 1rem;
+            }
+
+            .event-rsvp {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+            <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Enfrasys</a>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="blog.html" class="nav-link active">Blog</a></li>
+            </ul>
+            <a href="contact.html" class="nav-cta">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Event Header -->
+        <section class="hero hero-gradient">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="breadcrumb">
+                        <a href="index.html">Home</a> 
+                        <span>/</span> 
+                        <a href="events.html">Events</a> 
+                        <span>/</span> 
+                        <span>UPM Golden Jubilee</span>
+                    </div>
+                    <div class="hero-badge">
+                        <span class="badge-text">Anniversary</span>
+                    </div>
+                    <h1 class="hero-title">UPM Golden Jubilee - 50 Years of Excellence</h1>
+                    <p class="hero-subtitle">Celebrating legacy and innovation with Universiti Putra Malaysia</p>
+                    <div class="flex gap-sm mt-md">
+                        <span class="badge badge-success">Anniversary</span>
+                        <span class="badge badge-warning">Education Sector</span>
+                        <span class="badge badge-primary">Partnership</span>
+                    </div>
+                </div>
+            </div>
+        </section>        <!-- Event Details & RSVP -->
+        <section class="section">
+            <div class="container">
+                <div class="max-width-content mx-auto">
+                    <div class="event-card">
+                        <!-- Event Info Header -->
+                        <div class="event-header">
+                            <div class="event-status">
+                                <span class="status-badge status-completed">Event Completed</span>
+                            </div>
+                            <div class="event-meta">
+                                <div class="event-date">
+                                    <span class="date-day">16</span>
+                                    <span class="date-month">Feb 2025</span>
+                                </div>
+                                <div class="event-time">
+                                    <span class="time">9:00 AM - 5:00 PM</span>
+                                    <span class="timezone">MYT (GMT+8)</span>
+                                </div>
+                            </div>
+                        </div>                        <!-- Event Details -->
+                        <div class="event-details">
+                            <div class="event-location">
+                                <h3>Event Location</h3>
+                                <p><strong>Universiti Putra Malaysia (UPM)</strong></p>
+                                <p>Serdang, Selangor, Malaysia</p>
+                            </div>
+
+                            <div class="event-description">
+                                <h3>Event Description</h3>
+                                <p>Enfrasys was honored to join Universiti Putra Malaysia in celebrating its remarkable 50-year journey of academic excellence. This milestone celebration represented more than just a commemoration—it was a platform to showcase how technology can enhance and transform educational experiences for the next generation of students and researchers.</p>
+                                
+                                <h4>Celebration Highlights:</h4>
+                                <ul>
+                                    <li>50 years of academic achievement recognition</li>
+                                    <li>Future-ready digital solutions showcase</li>
+                                    <li>Smart campus technology demonstrations</li>
+                                    <li>Research and innovation platform presentations</li>
+                                    <li>Strategic partnership announcements</li>
+                                </ul>
+                            </div>
+
+                            <div class="event-speakers">
+                                <h3>Event Hosts</h3>
+                                <div class="speakers-grid">
+                                    <div class="speaker">
+                                        <h4>UPM Leadership</h4>
+                                        <p>University Administration and Faculty</p>
+                                    </div>
+                                    <div class="speaker">
+                                        <h4>Enfrasys Team</h4>
+                                        <p>Education Technology Specialists</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="event-highlights">
+                                <h3>Key Highlights</h3>
+                                <div class="highlights-grid">
+                                    <div class="highlight">
+                                        <h4>Smart Campus Infrastructure</h4>
+                                        <p>Digital infrastructure solutions for modern academic operations</p>
+                                    </div>
+                                    <div class="highlight">
+                                        <h4>Research Platforms</h4>
+                                        <p>Advanced computing and data analytics for breakthrough research</p>
+                                    </div>
+                                    <div class="highlight">
+                                        <h4>Student Experience</h4>
+                                        <p>Technology integration for enhanced learning outcomes</p>
+                                    </div>
+                                    <div class="highlight">
+                                        <h4>Academic Excellence</h4>
+                                        <p>Supporting UPM's vision for the next 50 years</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RSVP Section -->
+                        <div class="event-rsvp">
+                            <div class="rsvp-status">
+                                <h3>Event Status</h3>
+                                <div class="status-message completed">
+                                    <p><strong>This celebration has been completed successfully!</strong></p>
+                                    <p>Thank you to UPM for the partnership opportunity and to all participants who joined us in celebrating 50 years of academic excellence.</p>
+                                </div>
+                            </div>
+
+                            <div class="event-follow-up">
+                                <h3>Follow-Up Resources</h3>
+                                <div class="follow-up-actions">
+                                    <a href="contact.html" class="btn btn-primary">
+                                        Partner With Us
+                                    </a>
+                                    <a href="portfolio.html" class="btn btn-outline">
+                                        View Education Solutions
+                                    </a>
+                                </div>
+                                <p class="text-sm text-muted mt-md">
+                                    Interested in similar educational partnerships? <a href="events.html">View our upcoming events</a> or <a href="contact.html">contact us</a> for custom solutions.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Event Summary -->
+                        <div class="event-summary">
+                            <div class="summary-stats">
+                                <div class="stat">
+                                    <span class="stat-number">50</span>
+                                    <span class="stat-label">Years Celebrated</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">4</span>
+                                    <span class="stat-label">Solution Areas</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">1</span>
+                                    <span class="stat-label">Strategic Partnership</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Events -->
+        <section class="section bg-light">
+            <div class="container">
+                <div class="max-width-4xl mx-auto">
+                    <h2 class="text-center mb-xl">Related Events</h2>
+                    <div class="grid grid-3 gap-lg">
+                        <article class="card">
+                            <div class="card-content">
+                                <h4>USIM AI Day</h4>
+                                <p>Academic transformation through ethical AI and responsible innovation.</p>
+                                <a href="events-usim-ai-day.html" class="btn btn-outline btn-sm mt-md">View Program</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-content">
+                                <h4>Microsoft 365 Prompt-A-Thon</h4>
+                                <p>Empowering the public sector with AI tools and prompt engineering.</p>
+                                <a href="events-prompt-a-thon.html" class="btn btn-outline btn-sm mt-md">View Details</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-content">
+                                <h4>INTAN Copilot Tech Update</h4>
+                                <p>Training tomorrow's government leaders with AI capabilities.</p>
+                                <a href="events-intan-tech-update.html" class="btn btn-outline btn-sm mt-md">Read More</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <footer class="footer">
+        <div class="container">
+            <div class="grid grid-4">
+                <div>
+                    <h4>Enfrasys</h4>
+                    <p class="text-sm">Leading Malaysian technology partner specializing in digital transformation solutions powered by AI, cloud, modern workplace productivity, and security.</p>
+                </div>
+                <div>
+                    <h5>Solutions</h5>
+                    <ul class="footer-links">
+                        <li><a href="products.html">Digital Products</a></li>
+                        <li><a href="services.html">Professional Services</a></li>
+                        <li><a href="portfolio.html">Case Studies</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="resources.html">News</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Connect</h5>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Events</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Enfrasys. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+        <!-- Navigation JavaScript -->
+    <script src="js/navigation.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

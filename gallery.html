@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,27 +6,25 @@
     <title>AI Gallery - Enfrasys</title>
     <link rel="stylesheet" href="globaldesign.css">
 </head>
-<body>
-    <nav class="nav">
-        <a href="index.html" class="nav-brand">Enfrasys</a>
-        <ul class="nav-menu">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about.html" class="nav-link">About</a></li>
-            <li><a href="services.html" class="nav-link">Services</a></li>
-            <li><a href="products.html" class="nav-link">Products</a></li>
-            <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-            <li><a href="team.html" class="nav-link">Team</a></li>
-            <li><a href="blog.html" class="nav-link">Blog</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-            <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
-            <li><a href="faq.html" class="nav-link">FAQ</a></li>
-            <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
-            <li><a href="careers.html" class="nav-link">Careers</a></li>
-            <li><a href="news.html" class="nav-link">News</a></li>
-            <li><a href="events.html" class="nav-link">Events</a></li>
-            <li><a href="resources.html" class="nav-link">Resources</a></li>
-            <li><a href="support.html" class="nav-link">Support</a></li>
-        </ul>
+<body>        <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Enfrasys</a>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="news.html" class="nav-link">News</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="contact.html" class="nav-link nav-cta">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
     <main>
@@ -37,7 +35,7 @@
             </div>
         </section>
         
-        <section class="section">
+        <section class="section fade-in">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">AI Solutions Showcase</h2>
@@ -45,13 +43,13 @@
                 </div>
                 
                 <div class="grid grid-3">
-                    <div class="card">
+                    <div class="card card-premium fade-in">
                         <div class="card-header">
                             <span class="badge badge-primary">Computer Vision</span>
                         </div>
                         <div class="card-content">
                             <div class="gallery-placeholder">
-                                <h4>🔍 Object Detection</h4>
+                                <h4>Object Detection</h4>
                                 <p class="text-muted">Real-time AI vision systems</p>
                             </div>
                             <h3>Autonomous Vehicle Vision</h3>
@@ -59,13 +57,13 @@
                         </div>
                     </div>
                     
-                    <div class="card">
+                    <div class="card card-premium fade-in">
                         <div class="card-header">
                             <span class="badge badge-secondary">NLP</span>
                         </div>
                         <div class="card-content">
                             <div class="gallery-placeholder">
-                                <h4>💬 Language Processing</h4>
+                                <h4>Language Processing</h4>
                                 <p class="text-muted">Intelligent conversation systems</p>
                             </div>
                             <h3>AI Customer Support</h3>
@@ -73,13 +71,13 @@
                         </div>
                     </div>
                     
-                    <div class="card">
+                    <div class="card card-premium fade-in">
                         <div class="card-header">
                             <span class="badge badge-accent">Predictive Analytics</span>
                         </div>
                         <div class="card-content">
                             <div class="gallery-placeholder">
-                                <h4>📊 Data Analytics</h4>
+                                <h4>Data Analytics</h4>
                                 <p class="text-muted">Predictive intelligence dashboards</p>
                             </div>
                             <h3>Financial Forecasting</h3>
@@ -87,13 +85,13 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card card-premium fade-in">
                         <div class="card-header">
                             <span class="badge badge-primary">Robotics</span>
                         </div>
                         <div class="card-content">
                             <div class="gallery-placeholder">
-                                <h4>🤖 Industrial Automation</h4>
+                                <h4>Industrial Automation</h4>
                                 <p class="text-muted">Smart manufacturing systems</p>
                             </div>
                             <h3>AI-Powered Manufacturing</h3>
@@ -101,13 +99,13 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card card-premium fade-in">
                         <div class="card-header">
                             <span class="badge badge-secondary">Healthcare AI</span>
                         </div>
                         <div class="card-content">
                             <div class="gallery-placeholder">
-                                <h4>🏥 Medical Imaging</h4>
+                                <h4>Medical Imaging</h4>
                                 <p class="text-muted">Diagnostic AI systems</p>
                             </div>
                             <h3>Medical Diagnosis Assistant</h3>
@@ -115,13 +113,13 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card card-premium fade-in">
                         <div class="card-header">
                             <span class="badge badge-accent">IoT Integration</span>
                         </div>
                         <div class="card-content">
                             <div class="gallery-placeholder">
-                                <h4>🌐 Smart Cities</h4>
+                                <h4>Smart Cities</h4>
                                 <p class="text-muted">Connected infrastructure</p>
                             </div>
                             <h3>Smart City Management</h3>
@@ -137,7 +135,7 @@
                     </div>
                     
                     <div class="grid grid-2">
-                        <div class="card">
+                        <div class="card card-premium fade-in">
                             <div class="card-header">
                                 <div class="flex items-center justify-between">
                                     <span class="badge badge-primary">2024</span>
@@ -150,7 +148,7 @@
                             </div>
                         </div>
                         
-                        <div class="card">
+                        <div class="card card-premium fade-in">
                             <div class="card-header">
                                 <div class="flex items-center justify-between">
                                     <span class="badge badge-secondary">2023</span>
@@ -202,11 +200,18 @@
                         <li><a href="support.html">Support</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="footer-bottom">
+            </div>            <div class="footer-bottom">
                 <p>&copy; 2025 Enfrasys. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+        <!-- Navigation JavaScript -->
+    <script src="js/navigation.js"></script>
 </body>
 </html>
+
+
+
+
+

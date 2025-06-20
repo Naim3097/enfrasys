@@ -1,0 +1,540 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enfrasys Raya Open House 2025 - Enfrasys Events</title>
+    <meta name="description" content="Join our Hari Raya celebration and network with partners, clients, and the Enfrasys team in a festive atmosphere.">    <link rel="stylesheet" href="globaldesign.css">
+    <style>
+        /* Event Page Specific Styles */
+        .event-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .event-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            padding: 2rem;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .status-badge {
+            background: rgba(255,255,255,0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .status-completed {
+            background: var(--accent-blue);
+            color: var(--primary-dark);
+            border-color: var(--accent-blue);
+        }
+
+        .status-upcoming {
+            background: var(--warning-color, #f59e0b);
+            color: white;
+            border-color: var(--warning-color, #f59e0b);
+        }
+
+        .status-live {
+            background: var(--danger-color, #ef4444);
+            color: white;
+            border-color: var(--danger-color, #ef4444);
+        }
+
+        .event-meta {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .event-date {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .date-day {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .date-month {
+            display: block;
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .event-time {
+            text-align: center;
+        }
+
+        .time {
+            display: block;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .timezone {
+            display: block;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        .event-details {
+            padding: 2rem;
+        }
+
+        .event-details h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 0.5rem;
+        }
+
+        .event-details > div {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .event-details > div:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .speakers-grid, .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .speaker, .highlight {
+            background: var(--neutral-light);
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--primary-blue);
+            transition: transform 0.2s ease;
+        }
+
+        .speaker:hover, .highlight:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .speaker h4, .highlight h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .speaker p, .highlight p {
+            color: var(--primary-dark);
+            opacity: 0.7;
+            font-size: 0.875rem;
+            margin: 0;
+        }
+
+        .event-rsvp {
+            background: var(--neutral-light);
+            padding: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .event-rsvp h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 0.5rem;
+        }
+
+        .status-message {
+            background: rgba(185, 232, 249, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .status-message.completed {
+            background: rgba(185, 232, 249, 0.15);
+            border-color: var(--accent-blue);
+        }
+
+        .status-message.upcoming {
+            background: #fefce8;
+            border-color: #fde047;
+        }
+
+        .follow-up-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .event-summary {
+            background: var(--primary-dark);
+            color: white;
+            padding: 2rem;
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            display: block;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .event-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .event-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .follow-up-actions {
+                flex-direction: column;
+            }
+
+            .follow-up-actions .btn {
+                width: 100%;
+            }
+
+            .event-details {
+                padding: 1rem;
+            }
+
+            .event-rsvp {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+            <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Enfrasys</a>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="blog.html" class="nav-link active">Blog</a></li>
+            </ul>
+            <a href="contact.html" class="nav-cta">Contact</a>
+        </div>
+    </nav>
+
+    <main>        <section class="hero hero-gradient">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="breadcrumb">
+                        <a href="index.html">Home</a> 
+                        <span>/</span> 
+                        <a href="events.html">Events</a> 
+                        <span>/</span> 
+                        <span>Enfrasys Raya Open House 2025</span>
+                    </div>
+                    <div class="hero-badge">
+                        <span class="badge-text">Open House</span>
+                    </div>
+                    <h1 class="hero-title">Enfrasys Raya Open House 2025</h1>
+                    <p class="hero-subtitle">Celebrating Hari Raya with our community of partners, clients, and team members</p>
+                    <div class="flex gap-sm mt-md">
+                        <span class="badge badge-secondary">Open House</span>
+                        <span class="badge badge-success">Cultural Celebration</span>
+                        <span class="badge badge-primary">Networking</span>
+                    </div>
+                </div>
+            </div>
+        </section>        <section class="section">
+            <div class="container">
+                <div class="max-width-content mx-auto">
+                    <div class="event-card">
+                        <!-- Event Header -->
+                        <div class="event-header">
+                            <div class="event-status">
+                                <span class="status-badge status-upcoming">RSVP Open</span>
+                            </div>
+                            <div class="event-meta">
+                                <div class="event-date">
+                                    <span class="date-day">TBA</span>
+                                    <span class="date-month">Q2 2025</span>
+                                </div>
+                                <div class="event-time">
+                                    <span class="time">Full Day</span>
+                                    <span class="timezone">Enfrasys Office</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Event Details -->
+                        <div class="event-details">
+                            <div class="event-location">
+                                <h3>Event Location</h3>
+                                <p><strong>Enfrasys Office</strong></p>
+                                <p>Our corporate headquarters will be transformed into a festive celebration space, welcoming our extended family of partners, clients, and team members to join us in honoring the traditions of Hari Raya Aidilfitri.</p>
+                                <p><em>Detailed address will be provided with RSVP confirmation</em></p>
+                            </div>
+
+                            <div class="event-description">
+                                <h3>Event Description</h3>
+                                <p>Selamat Hari Raya Aidilfitri! Our annual Raya Open House is more than just a celebration—it's a reflection of the values that unite us as a community. We invite our partners, clients, team members, and their families to join us in commemorating this auspicious occasion while strengthening the bonds that make our success possible.</p>
+                                <p>This celebration represents the values fundamental to our organization: unity, gratitude, forgiveness, and renewal, reflecting our commitment to inclusivity and cultural appreciation.</p>
+                            </div>
+
+                            <div class="event-speakers">
+                                <h3>Celebration Program</h3>
+                                <div class="speakers-grid">
+                                    <div class="speaker">
+                                        <h4>Welcome & Traditional Greetings</h4>
+                                        <p>Opening ceremony with traditional Malay greetings and appreciation for our guests' presence in celebrating this important cultural milestone.</p>
+                                    </div>
+                                    <div class="speaker">
+                                        <h4>Cultural Performances</h4>
+                                        <p>Traditional music and dance performances showcasing the rich heritage of Malaysian culture and the spirit of Hari Raya.</p>
+                                    </div>
+                                    <div class="speaker">
+                                        <h4>Traditional Feast</h4>
+                                        <p>Authentic Malay cuisine featuring traditional Raya dishes, prepared by skilled chefs and presented in a warm, communal dining experience.</p>
+                                    </div>
+                                    <div class="speaker">
+                                        <h4>Community Mingling</h4>
+                                        <p>Open networking and socializing time, allowing guests to connect, share experiences, and strengthen relationships in a relaxed setting.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="event-highlights">
+                                <h3>Traditional Raya Experience</h3>
+                                <div class="highlights-grid">
+                                    <div class="highlight">
+                                        <h4>Culinary Delights</h4>
+                                        <ul>
+                                            <li>Rendang and traditional curries</li>
+                                            <li>Ketupat and lemang</li>
+                                            <li>Traditional kuih and desserts</li>
+                                            <li>Refreshing traditional beverages</li>
+                                        </ul>
+                                    </div>
+                                    <div class="highlight">
+                                        <h4>Cultural Ambiance</h4>
+                                        <ul>
+                                            <li>Traditional Malay decorations</li>
+                                            <li>Cultural music and performances</li>
+                                            <li>Photo opportunities in traditional settings</li>
+                                            <li>Storytelling and cultural sharing</li>
+                                        </ul>
+                                    </div>
+                                    <div class="highlight">
+                                        <h4>Family Activities</h4>
+                                        <ul>
+                                            <li>Interactive games for children</li>
+                                            <li>Cultural activities for all ages</li>
+                                            <li>Professional photography services</li>
+                                            <li>Traditional dress encouraged</li>
+                                        </ul>
+                                    </div>
+                                    <div class="highlight">
+                                        <h4>Core Values Celebrated</h4>
+                                        <ul>
+                                            <li>Unity - bringing people together</li>
+                                            <li>Gratitude - appreciating relationships</li>
+                                            <li>Renewal - embracing fresh opportunities</li>
+                                            <li>Community - strengthening bonds</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RSVP/Status Section -->
+                        <div class="event-rsvp">
+                            <h3>RSVP Information</h3>
+                            <div class="status-message upcoming">
+                                <p><strong>RSVP Required:</strong> We're planning this celebration with care to ensure a meaningful experience for all our guests. Please confirm your attendance to help us prepare accordingly.</p>
+                            </div>
+                            
+                            <div class="highlights-grid" style="margin-bottom: 1.5rem;">
+                                <div class="highlight">
+                                    <h4>Date & Time</h4>
+                                    <p>Q2 2025 - Specific date to be announced</p>
+                                </div>
+                                <div class="highlight">
+                                    <h4>Dress Code</h4>
+                                    <p>Traditional attire encouraged, smart casual welcome</p>
+                                </div>
+                            </div>
+                            
+                            <p>Help us make this celebration memorable by confirming your attendance. Include the number of family members who will be joining you. RSVP deadline is one week before the event date.</p>
+                            
+                            <div class="follow-up-actions">
+                                <a href="contact.html" class="btn btn-primary">RSVP Now</a>
+                                <a href="about.html" class="btn btn-outline">Learn About Enfrasys</a>
+                            </div>
+                            
+                            <blockquote style="background: var(--neutral-light); padding: 1rem; border-left: 4px solid var(--primary-blue); margin-top: 1.5rem;">
+                                <p><em>"Selamat Hari Raya Aidilfitri. May this celebration bring joy, peace, and renewed energy to our continued partnership."</em></p>
+                                <cite>— The Enfrasys Family</cite>
+                            </blockquote>
+                        </div>
+
+                        <!-- Event Summary -->
+                        <div class="event-summary">
+                            <div class="summary-stats">
+                                <div>
+                                    <span class="stat-number">All</span>
+                                    <span class="stat-label">Families Welcome</span>
+                                </div>
+                                <div>
+                                    <span class="stat-number">4</span>
+                                    <span class="stat-label">Program Activities</span>
+                                </div>
+                                <div>
+                                    <span class="stat-number">100%</span>
+                                    <span class="stat-label">Cultural Authentic</span>
+                                </div>
+                                <div>
+                                    <span class="stat-number">Free</span>
+                                    <span class="stat-label">RSVP Required</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Events -->
+        <section class="section bg-light">
+            <div class="container">
+                <div class="max-width-4xl mx-auto">
+                    <h2 class="text-center mb-xl">Related Events</h2>
+                    <div class="grid grid-3 gap-lg">
+                        <article class="card">
+                            <div class="card-content">
+                                <h4>Enfrasys Annual Dinner 2025</h4>
+                                <p>Our annual corporate celebration honoring achievements and partnerships.</p>
+                                <a href="news-annual-dinner-2025.html" class="btn btn-outline btn-sm mt-md">Learn More</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-content">
+                                <h4>Microsoft Data Centre AI Tour</h4>
+                                <p>Exclusive insights into Malaysia's new data centre capabilities.</p>
+                                <a href="events-microsoft-dc-tour.html" class="btn btn-outline btn-sm mt-md">Register Interest</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-content">
+                                <h4>Security Awareness Webinar</h4>
+                                <p>Microsoft 365 security best practices for administrators.</p>
+                                <a href="events-security-webinar.html" class="btn btn-outline btn-sm mt-md">Register</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <footer class="footer">
+        <div class="container">
+            <div class="grid grid-4">
+                <div>
+                    <h4>Enfrasys</h4>
+                    <p class="text-sm">Leading Malaysian technology partner specializing in digital transformation solutions powered by AI, cloud, modern workplace productivity, and security.</p>
+                </div>
+                <div>
+                    <h5>Solutions</h5>
+                    <ul class="footer-links">
+                        <li><a href="products.html">Digital Products</a></li>
+                        <li><a href="services.html">Professional Services</a></li>
+                        <li><a href="portfolio.html">Case Studies</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="resources.html">News</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Connect</h5>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Events</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Enfrasys. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+        <!-- Navigation JavaScript -->
+    <script src="js/navigation.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

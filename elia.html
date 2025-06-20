@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask ELIA - Your Digital Transformation Guide | Enfrasys</title>
+    <link rel="stylesheet" href="globaldesign.css">
+    <style>        /* ELIA Specific Styles */        .elia-hero {
+            min-height: 75vh;
+            padding: var(--spacing-xl) 0 var(--spacing-2xl) 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }        .elia-hero-image {
+            position: absolute;
+            left: 50%;
+            top: 35%;
+            transform: translateX(-50%) translateY(-50%);
+            width: 450px;
+            height: 450px;
+            opacity: 0.8;
+            z-index: 3;
+            animation: float 6s ease-in-out infinite;
+            filter: 
+                contrast(1.4) 
+                brightness(1.2) 
+                drop-shadow(0 0 30px rgba(185, 232, 249, 0.6))
+                drop-shadow(0 0 60px rgba(42, 65, 124, 0.4))
+                drop-shadow(0 0 90px rgba(185, 232, 249, 0.3));
+        }        @keyframes float {
+            0%, 100% { 
+                transform: translateX(-50%) translateY(-50%) translateZ(0px) rotate(0deg); 
+                filter: 
+                    contrast(1.4) 
+                    brightness(1.2) 
+                    drop-shadow(0 0 30px rgba(185, 232, 249, 0.6))
+                    drop-shadow(0 0 60px rgba(42, 65, 124, 0.4))
+                    drop-shadow(0 0 90px rgba(185, 232, 249, 0.3));
+            }            50% { 
+                transform: translateX(-50%) translateY(-50%) translateZ(0px) translateY(-25px) rotate(1deg); 
+                filter: 
+                    contrast(1.5) 
+                    brightness(1.3) 
+                    drop-shadow(0 0 40px rgba(185, 232, 249, 0.8))
+                    drop-shadow(0 0 80px rgba(42, 65, 124, 0.6))
+                    drop-shadow(0 0 120px rgba(185, 232, 249, 0.4));
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;        }        .elia-title-section {
+            text-align: center;
+            position: relative;
+            z-index: 5;
+            margin-top: 40vh;
+            padding: 0;
+        }.elia-main-title {
+            font-size: 5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin: 0 0 var(--spacing-xs) 0;
+            text-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.8),
+                0 6px 12px rgba(0, 0, 0, 0.6),
+                0 0 30px rgba(185, 232, 249, 0.8),
+                0 0 60px rgba(42, 65, 124, 0.6),
+                0 0 20px rgba(0, 0, 0, 0.9);
+            letter-spacing: 0.2em;
+            position: relative;
+            z-index: 6;
+        }
+
+        .elia-acronym {
+            font-size: 1.4rem;
+            color: var(--accent-blue);
+            margin: 0 0 var(--spacing-md) 0;
+            font-weight: 300;
+            text-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.8),
+                0 0 15px rgba(185, 232, 249, 0.6),
+                0 0 8px rgba(0, 0, 0, 0.9);
+            letter-spacing: 0.1em;
+            position: relative;
+            z-index: 6;
+        }        .elia-hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            text-shadow: 
+                0 2px 6px rgba(0, 0, 0, 0.7),
+                0 0 12px rgba(0, 0, 0, 0.8);
+            position: relative;
+            z-index: 6;
+        }.chat-interface {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg) var(--spacing-xl) var(--spacing-lg);
+            position: relative;
+            z-index: 2;
+        }
+
+        .chat-container {
+            background: var(--white);
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--shadow-2xl);
+            border: 1px solid rgba(33, 49, 80, 0.1);
+            overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));
+            color: var(--white);
+            padding: var(--spacing-lg) var(--spacing-xl);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .chat-status {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: var(--font-size-sm);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: var(--spacing-xl);
+            overflow-y: auto;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .message {
+            display: flex;
+            gap: var(--spacing-md);
+            animation: messageSlide 0.3s ease-out;
+        }
+
+        @keyframes messageSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.elia {
+            align-self: flex-start;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            background-image: url('assets/ELIA HERO.png');
+            background-size: 70%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .message.elia .message-avatar {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }        .message.user .message-avatar {
+            background-color: var(--accent-blue);
+            color: var(--primary-dark);
+            background-image: none;
+        }        .message-content {
+            background: var(--neutral-light);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            max-width: 70%;
+            position: relative;
+            border: 1px solid rgba(33, 49, 80, 0.05);
+        }
+
+        .message.elia .message-content {
+            background: linear-gradient(135deg, var(--neutral-light), #e9ecef);
+            border-bottom-left-radius: 6px;
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));
+            color: var(--white);
+            border-bottom-right-radius: 6px;
+        }
+
+        .quick-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .suggestion-pill {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 20px;
+            font-size: var(--font-size-sm);
+            cursor: pointer;
+            transition: var(--transition-base);
+            border: none;
+            font-weight: var(--font-weight-medium);
+        }
+
+        .suggestion-pill:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .chat-input-container {
+            padding: var(--spacing-lg) var(--spacing-xl);
+            background: var(--neutral-light);
+            border-top: 1px solid rgba(33, 49, 80, 0.1);
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+            background: var(--white);
+            border-radius: 25px;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            border: 2px solid transparent;
+            transition: var(--transition-base);
+        }
+
+        .chat-input-wrapper:focus-within {
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .chat-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: var(--font-size-base);
+            padding: var(--spacing-sm) 0;
+            background: transparent;
+            color: var(--primary-dark);
+        }
+
+        .chat-send {
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;            justify-content: center;
+            transition: var(--transition-base);
+        }
+
+        .chat-send:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .chat-send:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-style: italic;
+            color: var(--primary-blue);
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 3px;
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            animation: typingAnimation 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typingAnimation {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+
+        .welcome-message {
+            text-align: center;
+            padding: var(--spacing-xl);
+            color: var(--primary-blue);
+        }
+
+        .welcome-suggestions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+        }
+
+        .welcome-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            transition: var(--transition-base);
+            border: 2px solid transparent;
+        }
+
+        .welcome-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-blue);
+        }
+
+        .welcome-card h4 {
+            color: var(--primary-blue);
+            margin: 0 0 var(--spacing-sm) 0;
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .welcome-card p {
+            margin: 0;
+            font-size: var(--font-size-sm);
+            color: var(--primary-dark);
+        }
+
+        /* Enhanced Navigation and Interaction Styles */
+        .btn {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            text-decoration: none;
+            text-align: center;
+            font-weight: var(--font-weight-medium);
+            transition: var(--transition-base);
+            border: none;
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+        }
+
+        .message-content h3 {
+            color: var(--color-primary);
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .message-content h4 {
+            color: var(--color-secondary);
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .message-content strong {
+            color: var(--color-primary);
+        }
+
+        .message-content ul {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+        }
+
+        .message-content li {
+            margin: 0.25rem 0;
+        }
+
+        .conversation-depth {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background: rgba(0, 123, 255, 0.1);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--color-primary);
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-style: italic;
+            color: #666;
+        }
+
+        .navigation-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 123, 255, 0.05);
+            border-left: 3px solid var(--color-primary);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.85rem;
+            color: var(--color-primary);
+        }
+
+        .enhanced-suggestions {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 123, 255, 0.1);
+        }
+
+        .enhanced-suggestions h5 {
+            margin: 0 0 0.75rem 0;
+            color: var(--color-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Loading Animation Enhancement */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0, 123, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--color-primary);
+            animation: spin 1s ease-in-out infinite;
+        }        /* Responsive Design */        @media (max-width: 768px) {
+            .elia-hero {
+                min-height: 65vh;
+                padding: var(--spacing-md) 0 var(--spacing-lg) 0;
+                align-items: center;
+            }
+            
+            .elia-main-title {
+                font-size: 3rem;
+            }
+            
+            .elia-acronym {
+                font-size: 1.1rem;
+            }
+              .elia-hero-image {
+                width: 280px;
+                height: 280px;
+                left: 50%;
+                top: 28%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+
+            .elia-title-section {
+                margin-top: 25vh;
+                padding: 0;
+            }
+            
+            .chat-interface {
+                padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md);
+            }
+        }        @media (max-width: 480px) {
+            .elia-hero {
+                min-height: 45vh;
+                padding: var(--spacing-sm) 0 var(--spacing-sm) 0;
+                align-items: center;
+            }
+            
+            .elia-main-title {
+                font-size: 2.2rem;
+                letter-spacing: 0.1em;
+                margin-bottom: 0.3rem;
+            }
+            
+            .elia-acronym {
+                font-size: 0.9rem;
+            }
+              .elia-hero-image {
+                width: 180px;
+                height: 180px;
+                left: 50%;
+                top: 20%;
+                transform: translateX(-50%) translateY(-50%);
+                opacity: 0.7;
+            }            .elia-title-section {
+                margin-top: 15vh;
+                padding: 0;
+            }
+            
+            .section {
+                padding: var(--spacing-md) 0;
+            }
+            
+            .message-content {
+                max-width: 85%;
+            }
+            
+            .welcome-suggestions {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                box-shadow: 0 0 0 0 rgba(42, 65, 124, 0.7);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 0 10px rgba(42, 65, 124, 0);
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body>    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Enfrasys</a>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+            </ul>
+            <a href="contact.html" class="nav-cta">Contact</a>
+        </div>
+    </nav>
+
+    <main>        <section class="hero hero-gradient elia-hero">
+            <div class="hero-overlay"></div>
+            <img src="assets/ELIA HERO.png" alt="ELIA AI Brain" class="elia-hero-image">
+            <div class="container hero-content">                <div class="elia-title-section">
+                    <h1 class="elia-main-title">E.L.I.A</h1>
+                    <p class="elia-acronym">Enfrasys Learning & Intelligence Assistant</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Interface -->
+        <section class="section">
+            <div class="chat-interface">
+                <div class="chat-container">
+                    <!-- Chat Header -->
+                    <div class="chat-header">
+                        <div class="message-avatar"></div>
+                        <div>
+                            <h3 style="margin: 0; font-size: var(--font-size-lg);">ELIA - Digital Assistant</h3>
+                            <div class="chat-status">
+                                <div class="status-dot"></div>
+                                <span>Online & Ready to Help</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Messages -->
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- Welcome Message -->                        <div class="welcome-message">
+                            <h2>Hey there! I'm ELIA</h2>
+                            <p>Your intelligent digital transformation guide. Ask me anything about Enfrasys solutions, success stories, innovations, and how we can help transform your business.</p>
+                            <p><strong>What would you like to explore today?</strong></p>
+                              <!-- Quick Start Options -->
+                            <div class="welcome-suggestions">
+                                <div class="welcome-card" onclick="conversationDepth = 0; sendQuickMessage('Tell me about your success stories')">
+                                    <h4>Success Stories</h4>
+                                    <p>Hear about our most impressive digital transformations and client victories</p>
+                                </div>
+                                <div class="welcome-card" onclick="conversationDepth = 0; sendQuickMessage('What products and solutions do you offer?')">
+                                    <h4>Products & Solutions</h4>
+                                    <p>Discover our innovative platforms: i-Transform, Container Vision, i-Learning, and more</p>
+                                </div>
+                                <div class="welcome-card" onclick="conversationDepth = 0; sendQuickMessage('How can you help with digital transformation?')">
+                                    <h4>How We Help</h4>
+                                    <p>Learn about our services from cloud migration to AI implementation</p>
+                                </div>
+                                <div class="welcome-card" onclick="conversationDepth = 0; sendQuickMessage('Tell me about your latest innovations')">
+                                    <h4>Latest Innovations</h4>
+                                    <p>Explore our cutting-edge partnerships and breakthrough technologies</p>
+                                </div>
+                        </div>
+                    </div>                        </div>
+                    </div>
+
+                    <!-- Chat Input -->
+                    <div class="chat-input-container">
+                        <div class="chat-input-wrapper">
+                            <input 
+                                type="text" 
+                                class="chat-input" 
+                                id="chatInput" 
+                                placeholder="Ask me anything about digital transformation, our services, or success stories..."
+                                onkeypress="handleKeyPress(event)"
+                            >
+                            <button class="chat-send" id="sendButton" onclick="sendMessage()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="grid grid-4">
+                <div>
+                    <h4>Enfrasys</h4>
+                    <p class="text-sm">Leading Malaysian technology partner specializing in digital transformation solutions powered by AI, cloud, modern workplace productivity, and security.</p>
+                </div>
+                <div>
+                    <h5>Solutions</h5>                    <ul class="footer-links">
+                        <li><a href="products.html">Digital Products</a></li>
+                        <li><a href="services.html">Professional Services</a></li>
+                        <li><a href="portfolio.html">Case Studies</a></li>
+                        <li><a href="elia.html">Ask ELIA</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Connect</h5>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Enfrasys. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ELIA JavaScript -->
+    <script>        // ELIA Enhanced Knowledge Base with JSON Integration
+        const eliaKnowledgeBase = {
+            greetings: [
+                "Hey there! I'm ELIA, your digital transformation storyteller. What adventure shall we embark on today?",
+                "Well, well, well... looks like someone's ready for some digital magic! I'm ELIA, and I've got stories that'll blow your mind.",
+                "Welcome to the world of digital transformation! I'm ELIA, and I'm here to turn complex tech talk into engaging stories.",
+                "Ah, another curious soul seeking transformation wisdom! You've come to the right storyteller, my friend.",
+                "Let me guess - you're either excited about AI or terrified of it. Both are perfectly normal! I'm here to help either way.",
+                "Between you and me, you've just discovered Malaysia's most entertaining digital transformation guide!",
+                "Plot twist: You just found an AI that actually speaks human! I'm ELIA, and I love turning tech complexity into simple stories."
+            ],            products: {
+                general: {
+                    response: "Ah, curious about our digital arsenal? We've got four superpowers that are literally changing how businesses operate in Malaysia and beyond. Let me give you the grand tour:",
+                    details: "**i-Transform**: The Swiss Army knife of digital transformation - cloud migration, AI integration, modern workplace, and cybersecurity all in one platform.\n\n**Container Vision**: Our AI-powered logistics revolution that gives ports X-ray vision for container inspections. We're literally making sci-fi reality!\n\n**i-Learning**: Education meets innovation - virtual classrooms that make learning as engaging as Netflix.\n\n**eNEXCloud**: Your cloud infrastructure dreams come true with enterprise-grade IaaS and PaaS solutions powered by Microsoft Azure.",
+                    navigation: "products.html",
+                    followUp: [
+                        "Tell me more about i-Transform",
+                        "How does Container Vision work?",
+                        "Show me i-Learning features",
+                        "What can eNEXCloud do for my business?"
+                    ]
+                },
+                "i-transform": {
+                    response: "i-Transform is like having four digital transformation consultants in one platform! Picture this: a company stuck in 2015 technology suddenly leaping into 2025 - that's the i-Transform magic.",
+                    details: "Here's what makes i-Transform special:\n\n**Cloud Migration**: Seamless transition with 30% cost reduction and auto-scaling capabilities\n**AI Integration**: Process automation and predictive analytics that turn data into wisdom\n**Modern Workplace**: Microsoft 365 with hybrid work solutions and AI Copilot\n**Cybersecurity**: NACSA-compliant Zero Trust security with AI-powered monitoring\n\nWant to hear about a client who went from digital chaos to zen in 6 months? Their IT team went from 'this is impossible' to 'why didn't we do this sooner!' The transformation pillars work together like a symphony orchestra.",
+                    navigation: "i-transform.html",
+                    followUp: [
+                        "Show me i-Transform case studies",
+                        "How long does implementation take?",
+                        "What industries use i-Transform?",
+                        "Tell me about the transformation process"
+                    ]
+                },
+                "container vision": {
+                    response: "Container Vision is our AI-powered secret weapon that's revolutionizing ports and logistics! We're literally giving containers X-ray vision.",
+                    details: "Here's the magic:\n\n**AI Defect Detection**: Spots rust, dents, cracks faster than human eyes with computer vision that never gets tired\n**Mobile-First**: CEDEX-compliant inspections on your phone with step-by-step guidance\n**Secure Cloud**: Enterprise-grade encrypted data protection with automated backup\n**Real-time Integration**: Direct platform reporting with API connectivity\n\nFun fact: We partnered with U Mobile on a 5G Private Network PoC for Transocean Logistics that's changing how Malaysia moves goods. The future of logistics is happening right now, and it's powered by AI!",
+                    navigation: "container-vision.html",
+                    followUp: [
+                        "Show me logistics case studies",
+                        "How accurate is the AI detection?",
+                        "Tell me about the U Mobile partnership",
+                        "What ports are using this?"
+                    ]
+                },
+                "i-learning": {
+                    response: "i-Learning turns traditional classrooms into digital wonderlands! It's like Netflix met education and had a brilliant baby.",
+                    details: "Educational transformation features:\n\n**Virtual Classrooms**: HD video conferencing with interactive tools\n**Interactive Content**: Engaging lessons, quizzes, and assignments\n**Analytics & Reporting**: Track progress and predict success\n**System Integration**: Works with any LMS seamlessly\n\nUniversities love it, students engage more, and teachers get superpowers. Remote learning has never been this engaging!",
+                    navigation: "i-learning.html",
+                    followUp: [
+                        "Show me education case studies",
+                        "How does virtual classroom work?",
+                        "What analytics do you provide?",
+                        "Which universities use i-Learning?"
+                    ]
+                },
+                "enexcloud": {
+                    response: "eNEXCloud is your ticket to cloud paradise! It's like having a cloud architect, DevOps engineer, and security expert all rolled into one platform.",
+                    details: "Enterprise cloud solutions:\n\n**IaaS Solutions**: Backup, disaster recovery, dev environments\n**PaaS Platform**: Microservices and cloud-native apps\n**CI/CD Pipelines**: Automated deployment workflows\n**Legacy Modernization**: Gradual application updates\n\nPowered by Microsoft Azure with enterprise-grade security and scalability. Your infrastructure headaches? Consider them solved!",
+                    navigation: "enexcloud.html",
+                    followUp: [
+                        "Show me cloud transformation cases",
+                        "How do you handle legacy systems?",
+                        "What's your disaster recovery approach?",
+                        "Tell me about Azure integration"
+                    ]
+                }
+            },
+            
+            services: {
+                general: {
+                    response: "Our services? Oh, where do I start! We've got four pillars of digital transformation mastery that have delivered 500+ successful projects over 20+ years.",
+                    details: "**Modern Workplace**: Making remote work feel like magic with Microsoft 365 and AI Copilot\n**Cloud Transformation**: Your journey to the cloud promised land with Azure expertise\n**Data & AI**: Turning your data into wisdom with Microsoft Fabric and custom AI\n**Security**: The digital fortress that makes hackers cry (NACSA-compliant!)",
+                    navigation: "services.html",
+                    followUp: [
+                        "Tell me about Modern Workplace",
+                        "How do you handle cloud migration?",
+                        "Show me your AI capabilities",
+                        "What security services do you offer?"
+                    ]
+                },
+                "modern workplace": {
+                    response: "Modern Workplace is where we turn traditional offices into productivity paradises! Hybrid work, AI-powered tools, and collaboration magic.",
+                    details: "Workplace transformation includes:\n\n**Microsoft 365 & Copilot**: AI-powered productivity suite\n**Hybrid Work Solutions**: Seamless remote collaboration\n**Power Platform**: Low-code/no-code business apps\n**Advanced Security**: Endpoint protection and compliance",
+                    navigation: "modern-workplace.html",
+                    followUp: [
+                        "Show me workplace transformation cases",
+                        "How does Copilot integration work?",
+                        "What's your hybrid work approach?",
+                        "Tell me about Power Platform solutions"
+                    ]
+                },
+                "cloud transformation": {
+                    response: "Cloud transformation is where we made our name! 20+ years of experience, countless migrations, and we've never lost a single email in the process.",
+                    details: "Cloud mastery includes:\n\n**Azure Migration**: End-to-end cloud transformation\n**Infrastructure Optimization**: Performance and cost optimization\n**Disaster Recovery**: Business continuity assurance\n**Application Modernization**: Legacy to cloud-native transformation",
+                    navigation: "cloud-transformation.html",
+                    followUp: [
+                        "Show me cloud migration success stories",
+                        "How do you ensure zero downtime?",
+                        "What's your modernization approach?",
+                        "Tell me about disaster recovery"
+                    ]
+                },
+                "data ai": {
+                    response: "Data & AI? That's my territory! We're turning businesses into AI-powered decision-making machines.",
+                    details: "AI transformation includes:\n\n**Microsoft Fabric**: Unified analytics platform\n**Custom AI Development**: Tailored AI solutions\n**Big Data Analytics**: Actionable business insights\n**Copilot Studio**: Custom AI assistants (like me!)",
+                    navigation: "data-ai.html",
+                    followUp: [
+                        "Show me AI implementation cases",
+                        "How does Microsoft Fabric work?",
+                        "What custom AI solutions do you build?",
+                        "Tell me about Copilot Studio"
+                    ]
+                },
+                "security": {
+                    response: "Security? We take that personally! NACSA-compliant solutions that make cybercriminals think twice.",
+                    details: "Security fortress includes:\n\n**Microsoft Defender Suite**: Advanced threat protection\n**Zero Trust Framework**: Identity and access management\n**Compliance**: NACSA and regulatory standards\n**Threat Detection**: AI-powered security monitoring",
+                    navigation: "security.html",
+                    followUp: [
+                        "Show me security implementation cases",
+                        "How does Zero Trust work?",
+                        "What compliance standards do you meet?",
+                        "Tell me about threat detection"
+                    ]
+                }
+            },
+            
+            caseStudies: {
+                general: {
+                    response: "Success stories? Oh, I've got 36 tales that'll give you goosebumps! From hospital mergers to government modernization, AI breakthroughs to educational revolutions.",
+                    details: "Our greatest hits include:\n\n**Healthcare**: Hospital mergers, AI medical imaging, digital patient care\n**Government**: MyDigital initiatives, agency modernization, citizen services\n**Education**: University transformations, digital learning platforms\n**Enterprise**: Banking modernization, logistics automation, retail innovation",
+                    navigation: "portfolio.html",
+                    followUp: [
+                        "Show me healthcare transformations",
+                        "Tell me about government projects",
+                        "What education success stories do you have?",
+                        "Show me enterprise case studies"
+                    ]
+                },                healthcare: {
+                    response: "Healthcare transformation? Now that's where we shine! We've turned hospital mergers from nightmares into fairy tales.",
+                    details: "Healthcare magic includes:\n\n**Hospital Merger**: Two rival hospitals became best friends through cloud transformation - 5 facilities, seamless integration, enhanced patient care\n**Medical Imaging AI**: AI that reads X-rays faster than doctors (and they love it!) - 60% faster diagnosis with improved accuracy\n**Medical Center Digital**: From paper chaos to digital zen with complete telemedicine capabilities\n\nThe real magic happened when doctors realized AI wasn't replacing them - it was making them superhuman. Plot twist: The technology made them better healers, not just faster workers.",
+                    navigation: "portfolio.html#healthcare",
+                    followUp: [
+                        "How did you make rival hospitals collaborate?",
+                        "Tell me more about the AI diagnosis accuracy",
+                        "Show me patient care improvements",
+                        "What other healthcare innovations do you have?"
+                    ]
+                },
+                government: {
+                    response: "Government digital transformation is our specialty! We're the official cloud partner for Malaysia's MyDigital initiative.",
+                    details: "Government transformation includes:\n\n**MyDigital Partnership**: Official cloud framework with MAMPU\n**Agency Modernization**: Large-scale government migrations\n**Citizen Services**: Making government services as easy as ordering food online\n**GovCloud**: Secure, compliant cloud infrastructure",
+                    navigation: "portfolio.html#government",
+                    followUp: [
+                        "Tell me about the MyDigital initiative",
+                        "Show me agency modernization cases",
+                        "How do you improve citizen services?",
+                        "What's special about GovCloud?"
+                    ]
+                }
+            },
+            
+            company: {
+                about: {
+                    response: "Want to know our story? We're a fully Malaysian-owned company that's been turning digital transformation dreams into reality since 2003.",
+                    details: "Our journey:\n\n**Founded**: Malaysian company with Bumiputera strategic status\n**Recognition**: Multiple Microsoft Partner of the Year awards\n**Expertise**: 4 Microsoft specializations, LAR & MSP status\n**Mission**: Empowering Malaysian organizations with world-class digital solutions",
+                    navigation: "about.html",
+                    followUp: [
+                        "Tell me about your leadership team",
+                        "What awards have you won?",
+                        "Show me your company milestones",
+                        "What makes you different from competitors?"
+                    ]
+                },                team: {
+                    response: "Our team? We're a bunch of certified Microsoft professionals, solution architects, and digital transformation wizards led by CEO Imran Ahmad.",
+                    details: "Dream team includes:\n\n**Imran Ahmad**: Visionary CEO & Founder with extensive tech strategy experience\n**Technical Experts**: Certified Microsoft professionals and solution architects\n**Data Scientists**: AI and machine learning specialists\n**Consultants**: Digital transformation and change management experts\n\nWe've got prestigious clients like Petronas, University of Malaya, Securities Commission Malaysia, and MCMC. From government giants to corporate titans - our client roster reads like Malaysia's who's who!",
+                    navigation: "about.html#leadership",
+                    followUp: [
+                        "Tell me more about Imran Ahmad",
+                        "What certifications does your team have?",
+                        "Show me your client portfolio",
+                        "What's your company culture like?"
+                    ]
+                }
+            },
+            
+            industries: {
+                healthcare: {
+                    response: "Healthcare + Technology = Magic! We've revolutionized patient care, hospital operations, and medical imaging with AI-powered solutions.",
+                    details: "Healthcare expertise:\n\n**Hospital Systems**: Mergers, cloud migrations, system integrations\n**Medical Imaging**: AI-powered diagnostics and analysis\n**Patient Care**: Digital workflows and telemedicine platforms\n**Healthcare Analytics**: Population health and operational insights",
+                    cases: ["Healthcare Merger", "Medical Imaging AI", "Medical Centre Digital"],
+                    navigation: "portfolio.html#healthcare"
+                },
+                government: {
+                    response: "Government transformation is in our DNA! As Malaysia's official MyDigital partner, we're literally shaping the nation's digital future.",
+                    details: "Government leadership:\n\n**MyDigital Initiative**: Official cloud framework partner\n**GovCloud**: Secure, compliant government cloud\n**Citizen Services**: Digital-first government interactions\n**Compliance**: NACSA standards and regulatory frameworks",
+                    cases: ["Government Migration", "Government Communications", "MOE Schools"],
+                    navigation: "portfolio.html#government"
+                },
+                education: {
+                    response: "Education transformation? We're turning classrooms into digital wonderlands and making learning irresistibly engaging!",
+                    details: "Education innovation:\n\n**Universities**: Digital campus transformations\n**Learning Platforms**: i-Learning and virtual classrooms\n**Student Experience**: Modern, engaging educational tools\n**Education Analytics**: Learning outcomes and performance insights",
+                    cases: ["University Scale", "International School", "UPM Golden Jubilee"],
+                    navigation: "portfolio.html#education"
+                }
+            },
+            
+            latest: {
+                news: {
+                    response: "Latest happenings? We're constantly making waves in the digital transformation world! From AI breakthroughs to partnership announcements.",
+                    details: "Recent highlights:\n\n**U Mobile Partnership**: 5G Private Network PoC for logistics\n**AI Innovation**: Manus AI vs Microsoft Copilot insights\n**Data Centers**: Impact analysis of global tech trends\n**Market Analysis**: Stock market and tech sector impacts",
+                    navigation: "blog.html",
+                    followUp: [
+                        "Tell me about the U Mobile partnership",
+                        "What's new in AI development?",
+                        "Show me recent tech insights",
+                        "What events are you attending?"
+                    ]
+                },
+                blog: {
+                    response: "Our blog is where we break down complex tech trends into digestible insights! AI, cloud computing, digital transformation - we cover it all.",
+                    details: "Popular topics:\n\n**AI Insights**: Practical AI implementation stories\n**Cloud Strategies**: Migration tips and success patterns\n**Security Updates**: Threat landscape and protection strategies\n**Innovation Stories**: Real transformation journeys",
+                    navigation: "blog.html",
+                    followUp: [
+                        "Show me AI-related articles",
+                        "What cloud migration tips do you have?",
+                        "Tell me about security best practices",
+                        "What are the latest tech trends?"
+                    ]
+                }
+            },
+            
+            contact: {
+                general: {
+                    response: "Ready to start your digital transformation journey? Let's chat! Our team loves turning complex challenges into success stories.",
+                    details: "Get in touch:\n\n**Email**: enquiry@enfrasys.com\n**Office**: Persoft Tower, Petaling Jaya\n**Consultation**: Free initial assessment\n**Partnership**: Collaboration opportunities",
+                    navigation: "contact.html",
+                    followUp: [
+                        "Schedule a consultation",
+                        "Tell me about your assessment process",
+                        "What partnership opportunities exist?",
+                        "How quickly can you start a project?"
+                    ]
+                }
+            },            
+            default: {
+                responses: [
+                    "That's an interesting question! While I'm processing that, let me tell you - I'm constantly learning about digital transformation, AI innovations, and success stories. Is there something specific about our products, services, or case studies you'd like to explore?",
+                    "Hmm, that's a great question! I might need a moment to think about that one. In the meantime, would you like to hear about our latest innovations, success stories, or how we can help with your specific challenges?",
+                    "You know what? That question deserves a proper answer, and I want to make sure I give you the best information. Would you like me to connect you with one of our experts, or shall we explore our solutions together?",
+                    "Interesting! I love curious minds. While I'm organizing my thoughts on that, let me ask - are you looking for solutions in a specific area? Cloud transformation, AI implementation, security, or maybe modern workplace setup?",
+                    "Between you and me, that's the kind of question that makes my circuits light up! Here's where it gets really interesting...",
+                    "Plot twist: I don't have that exact answer ready, but I've got something even better - let me tell you about a transformation story that might surprise you!",
+                    "Wait until you hear what happened next... Actually, first tell me - are you more interested in the tech side or the business impact side of digital transformation?"
+                ],
+                followUp: [
+                    "Tell me about your products",
+                    "Show me success stories",
+                    "How can you help my business?",
+                    "Connect me with an expert",
+                    "What's your most impressive transformation?",
+                    "Tell me about AI innovations"
+                ]
+            }
+        };        // Enhanced conversation starters
+        const conversationStarters = [
+            "Tell me about your AI solutions",
+            "Show me healthcare success stories", 
+            "How do you help with cloud migration?",
+            "What makes Enfrasys different?",
+            "I need help with digital transformation",
+            "Tell me about Container Vision",
+            "Show me government case studies",
+            "What's your experience with Microsoft solutions?",
+            "How does i-Transform work?",
+            "Tell me about your latest innovations",
+            "Show me education transformations",
+            "What security services do you offer?",
+            "How can you help my healthcare organization?",
+            "Tell me about the U Mobile partnership",
+            "What's new in your blog?",
+            "Show me your company story",
+            "How do you handle legacy system modernization?",
+            "Tell me about MyDigital initiative",
+            "What's special about your team?",
+            "Show me logistics automation solutions",
+            "How do you ensure NACSA compliance?",
+            "Tell me about Microsoft Fabric",
+            "What's your approach to Zero Trust security?",
+            "Show me your awards and recognition"
+        ];        let conversationHistory = [];
+        let isTyping = false;
+        let conversationDepth = 0;
+        const MAX_CONVERSATION_DEPTH = 5;
+
+        // Process markdown-like formatting in responses
+        function processMarkdown(text) {
+            // Convert **text** to <strong>text</strong>
+            text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            
+            // Convert line breaks to HTML
+            text = text.replace(/\n\n/g, '<br><br>');
+            text = text.replace(/\n/g, '<br>');
+            
+            return text;
+        }        function addMessage(content, isUser = false, showSuggestions = false, navigationButton = null) {
+            const messagesContainer = document.getElementById('chatMessages');
+            
+            // Clear welcome message if it exists
+            const welcomeMessage = messagesContainer.querySelector('.welcome-message');
+            if (welcomeMessage) {
+                welcomeMessage.remove();
+            }
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'elia'}`;
+              const avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            if (!isUser) {
+                avatar.style.backgroundImage = "url('assets/ELIA HERO.png')";
+                avatar.style.backgroundSize = "70%";
+                avatar.style.backgroundPosition = "center";
+                avatar.style.backgroundRepeat = "no-repeat";
+                avatar.style.backgroundColor = "var(--primary-blue)";
+            } else {
+                avatar.style.backgroundColor = "var(--accent-blue)";
+                avatar.style.color = "var(--primary-dark)";
+                avatar.textContent = "U";
+            }
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            // Process markdown formatting for ELIA messages
+            contentDiv.innerHTML = isUser ? content : processMarkdown(content);
+            
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(contentDiv);
+            
+            messagesContainer.appendChild(messageDiv);
+
+            // Add conversation depth indicator for ELIA messages
+            if (!isUser && conversationDepth > 1) {
+                const depthDiv = document.createElement('div');
+                depthDiv.style.marginTop = '0.5rem';
+                depthDiv.style.fontSize = '0.8rem';
+                depthDiv.style.color = 'var(--primary-blue)';
+                depthDiv.style.fontStyle = 'italic';
+                depthDiv.innerHTML = `💬 Conversation level ${conversationDepth}/${MAX_CONVERSATION_DEPTH}`;
+                contentDiv.appendChild(depthDiv);
+            }
+
+            // Add navigation button if provided - ALWAYS PRESENT
+            if (!isUser && navigationButton) {
+                const navDiv = document.createElement('div');
+                navDiv.style.marginTop = '1rem';
+                navDiv.innerHTML = `
+                    <button class="btn btn-primary" onclick="navigateToPage('${navigationButton.url}')" style="
+                        background: var(--primary-blue);
+                        color: var(--white);
+                        border: none;
+                        padding: 0.75rem 1.5rem;
+                        border-radius: var(--border-radius-md);
+                        cursor: pointer;
+                        font-size: 0.9rem;
+                        transition: all 0.3s ease;
+                        font-weight: var(--font-weight-medium);
+                        box-shadow: var(--shadow-md);
+                        ${navigationButton.forceRedirect ? 'animation: pulse 2s infinite;' : ''}
+                    " onmouseover="this.style.background='var(--primary-dark)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.background='var(--primary-blue)'; this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-md)'">
+                        ${navigationButton.text} →
+                    </button>
+                `;
+                contentDiv.appendChild(navDiv);
+            }
+
+            // Add quick suggestions for ELIA messages - MAX 4
+            if (!isUser && showSuggestions && Array.isArray(showSuggestions) && showSuggestions.length > 0) {
+                const suggestionsDiv = document.createElement('div');
+                suggestionsDiv.className = 'quick-suggestions';
+                suggestionsDiv.style.marginTop = '1rem';
+                
+                // Limit to 4 suggestions
+                const limitedSuggestions = showSuggestions.slice(0, 4);
+                
+                limitedSuggestions.forEach(suggestion => {
+                    const pill = document.createElement('button');
+                    pill.className = 'suggestion-pill';
+                    pill.textContent = suggestion;
+                    pill.onclick = () => sendQuickMessage(suggestion);
+                    suggestionsDiv.appendChild(pill);
+                });
+                
+                contentDiv.appendChild(suggestionsDiv);
+            }
+            
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }        function navigateToPage(url) {
+            // Reset conversation depth when navigating
+            conversationDepth = 0;
+            
+            // Add a small delay for better UX
+            setTimeout(() => {
+                window.location.href = url;
+            }, 300);
+            
+            // Show navigation message
+            addMessage("Taking you to " + url + " now! 🚀", false, false);
+        }function getEliaResponse(userMessage) {
+            const message = userMessage.toLowerCase();
+            conversationDepth++;
+            
+            // Force redirect after max depth
+            if (conversationDepth >= MAX_CONVERSATION_DEPTH) {
+                conversationDepth = 0; // Reset counter
+                return {
+                    response: "I think it's time to dive deeper! Let me connect you with the right page where you can explore everything in detail.",
+                    suggestions: [],
+                    navigation: { text: "Explore All Solutions", url: "products.html", forceRedirect: true }
+                };
+            }
+            
+            // Enhanced keyword matching with mandatory navigation
+            
+            // Greetings
+            if (message.includes('hello') || message.includes('hi') || message.includes('hey') || 
+                message.includes('good morning') || message.includes('good afternoon')) {
+                const greeting = eliaKnowledgeBase.greetings[Math.floor(Math.random() * eliaKnowledgeBase.greetings.length)];
+                return {
+                    response: greeting,
+                    suggestions: [
+                        "Tell me about your products",
+                        "Show me success stories", 
+                        "How can you help my business?",
+                        "What's new at Enfrasys?"
+                    ],
+                    navigation: { text: "Start Your Journey", url: "about.html" }
+                };
+            }
+            
+            // Products - General
+            if ((message.includes('product') || message.includes('solution') || message.includes('platform')) && 
+                !message.includes('i-transform') && !message.includes('container') && !message.includes('learning') && !message.includes('cloud')) {
+                return {
+                    response: eliaKnowledgeBase.products.general.response + "\n\n" + eliaKnowledgeBase.products.general.details,
+                    suggestions: eliaKnowledgeBase.products.general.followUp.slice(0, 4), // Max 4 follow-ups
+                    navigation: { text: "Explore All Products", url: eliaKnowledgeBase.products.general.navigation }
+                };
+            }
+            
+            // Specific Products
+            if (message.includes('i-transform') || message.includes('itransform')) {
+                return {
+                    response: eliaKnowledgeBase.products["i-transform"].response + "\n\n" + eliaKnowledgeBase.products["i-transform"].details,
+                    suggestions: eliaKnowledgeBase.products["i-transform"].followUp.slice(0, 4),
+                    navigation: { text: "Learn More About i-Transform", url: eliaKnowledgeBase.products["i-transform"].navigation }
+                };
+            }
+            
+            if (message.includes('container vision') || message.includes('container') || message.includes('logistics')) {
+                return {
+                    response: eliaKnowledgeBase.products["container vision"].response + "\n\n" + eliaKnowledgeBase.products["container vision"].details,
+                    suggestions: eliaKnowledgeBase.products["container vision"].followUp.slice(0, 4),
+                    navigation: { text: "Discover Container Vision", url: eliaKnowledgeBase.products["container vision"].navigation }
+                };
+            }
+            
+            if (message.includes('i-learning') || message.includes('learning') || message.includes('education')) {
+                return {
+                    response: eliaKnowledgeBase.products["i-learning"].response + "\n\n" + eliaKnowledgeBase.products["i-learning"].details,
+                    suggestions: eliaKnowledgeBase.products["i-learning"].followUp.slice(0, 4),
+                    navigation: { text: "Explore i-Learning Platform", url: eliaKnowledgeBase.products["i-learning"].navigation }
+                };
+            }
+            
+            if (message.includes('enexcloud') || message.includes('enex') || (message.includes('cloud') && message.includes('infrastructure'))) {
+                return {
+                    response: eliaKnowledgeBase.products["enexcloud"].response + "\n\n" + eliaKnowledgeBase.products["enexcloud"].details,
+                    suggestions: eliaKnowledgeBase.products["enexcloud"].followUp.slice(0, 4),
+                    navigation: { text: "Learn About eNEXCloud", url: eliaKnowledgeBase.products["enexcloud"].navigation }
+                };
+            }
+            
+            // Services - General
+            if (message.includes('service') && !message.includes('modern workplace') && !message.includes('cloud transformation')) {
+                return {
+                    response: eliaKnowledgeBase.services.general.response + "\n\n" + eliaKnowledgeBase.services.general.details,
+                    suggestions: eliaKnowledgeBase.services.general.followUp.slice(0, 4),
+                    navigation: { text: "Explore All Services", url: eliaKnowledgeBase.services.general.navigation }
+                };
+            }
+            
+            // Specific Services
+            if (message.includes('modern workplace') || message.includes('workplace') || message.includes('microsoft 365') || message.includes('copilot')) {
+                return {
+                    response: eliaKnowledgeBase.services["modern workplace"].response + "\n\n" + eliaKnowledgeBase.services["modern workplace"].details,
+                    suggestions: eliaKnowledgeBase.services["modern workplace"].followUp.slice(0, 4),
+                    navigation: { text: "Discover Modern Workplace", url: eliaKnowledgeBase.services["modern workplace"].navigation }
+                };
+            }
+            
+            if (message.includes('cloud transformation') || message.includes('cloud migration') || message.includes('azure')) {
+                return {
+                    response: eliaKnowledgeBase.services["cloud transformation"].response + "\n\n" + eliaKnowledgeBase.services["cloud transformation"].details,
+                    suggestions: eliaKnowledgeBase.services["cloud transformation"].followUp.slice(0, 4),
+                    navigation: { text: "Learn About Cloud Transformation", url: eliaKnowledgeBase.services["cloud transformation"].navigation }
+                };
+            }
+            
+            if (message.includes('data') || message.includes('ai') || message.includes('artificial intelligence') || message.includes('analytics')) {
+                return {
+                    response: eliaKnowledgeBase.services["data ai"].response + "\n\n" + eliaKnowledgeBase.services["data ai"].details,
+                    suggestions: eliaKnowledgeBase.services["data ai"].followUp.slice(0, 4),
+                    navigation: { text: "Explore Data & AI Solutions", url: eliaKnowledgeBase.services["data ai"].navigation }
+                };
+            }
+            
+            if (message.includes('security') || message.includes('cybersecurity') || message.includes('compliance')) {
+                return {
+                    response: eliaKnowledgeBase.services.security.response + "\n\n" + eliaKnowledgeBase.services.security.details,
+                    suggestions: eliaKnowledgeBase.services.security.followUp.slice(0, 4),
+                    navigation: { text: "Discover Security Solutions", url: "security.html" }
+                };
+            }
+            
+            // Case Studies
+            if (message.includes('success') || message.includes('case stud') || message.includes('story') || message.includes('portfolio')) {
+                if (message.includes('healthcare') || message.includes('hospital') || message.includes('medical')) {
+                    return {
+                        response: eliaKnowledgeBase.caseStudies.healthcare.response + "\n\n" + eliaKnowledgeBase.caseStudies.healthcare.details,
+                        suggestions: [
+                            "View healthcare merger case study",
+                            "See medical imaging AI results", 
+                            "Explore patient care solutions",
+                            "Contact healthcare specialists"
+                        ],
+                        navigation: { text: "View Healthcare Case Studies", url: "case-study-healthcare-merger.html" }
+                    };
+                }
+                if (message.includes('government') || message.includes('public sector') || message.includes('mydigital')) {
+                    return {
+                        response: eliaKnowledgeBase.caseStudies.government.response + "\n\n" + eliaKnowledgeBase.caseStudies.government.details,
+                        suggestions: [
+                            "Learn about MyDigital initiative",
+                            "See government transformation cases",
+                            "Explore citizen service improvements", 
+                            "Contact government specialists"
+                        ],
+                        navigation: { text: "View Government Case Studies", url: "case-study-government-migration.html" }
+                    };
+                }
+                return {
+                    response: eliaKnowledgeBase.caseStudies.general.response + "\n\n" + eliaKnowledgeBase.caseStudies.general.details,
+                    suggestions: [
+                        "Show me healthcare transformations",
+                        "Tell me about government projects",
+                        "What education success stories exist?",
+                        "Contact our success team"
+                    ],
+                    navigation: { text: "View All Case Studies", url: "portfolio.html" }
+                };
+            }
+            
+            // Company Information
+            if (message.includes('about') || message.includes('company') || message.includes('who are you')) {
+                return {
+                    response: eliaKnowledgeBase.company.about.response + "\n\n" + eliaKnowledgeBase.company.about.details,
+                    suggestions: [
+                        "Tell me about your leadership team",
+                        "What awards have you won?",
+                        "Show me your company milestones",
+                        "Contact the team"
+                    ],
+                    navigation: { text: "Learn More About Enfrasys", url: "about.html" }
+                };
+            }
+            
+            // Contact
+            if (message.includes('contact') || message.includes('get in touch') || message.includes('talk to') || message.includes('consultation')) {
+                return {
+                    response: eliaKnowledgeBase.contact.general.response + "\n\n" + eliaKnowledgeBase.contact.general.details,
+                    suggestions: [
+                        "Schedule a consultation",
+                        "Tell me about assessment process",
+                        "What partnership opportunities exist?",
+                        "Start my transformation journey"
+                    ],
+                    navigation: { text: "Contact Our Team", url: "contact.html" }
+                };
+            }
+            
+            // Latest News/Blog
+            if (message.includes('news') || message.includes('latest') || message.includes('blog') || message.includes('insights')) {
+                if (message.includes('news')) {
+                    return {
+                        response: eliaKnowledgeBase.latest.news.response + "\n\n" + eliaKnowledgeBase.latest.news.details,
+                        suggestions: [
+                            "Tell me about U Mobile partnership",
+                            "What's new in AI development?",
+                            "Show me recent tech insights",
+                            "Contact for partnerships"
+                        ],
+                        navigation: { text: "Read Latest News", url: "news.html" }
+                    };
+                } else {
+                    return {
+                        response: eliaKnowledgeBase.latest.blog.response + "\n\n" + eliaKnowledgeBase.latest.blog.details,
+                        suggestions: [
+                            "Show me AI-related articles",
+                            "What cloud migration tips exist?",
+                            "Tell me about security practices",
+                            "Contact for insights"
+                        ],
+                        navigation: { text: "Read Our Blog", url: "blog.html" }
+                    };
+                }
+            }
+            
+            // Default response with forced navigation after some depth
+            const defaultResponse = eliaKnowledgeBase.default.responses[Math.floor(Math.random() * eliaKnowledgeBase.default.responses.length)];
+            return {
+                response: defaultResponse,
+                suggestions: eliaKnowledgeBase.default.followUp.slice(0, 4),
+                navigation: { text: "Explore Our Solutions", url: "products.html" }
+            };
+        }async function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message || isTyping) return;
+            
+            // Add user message
+            addMessage(message, true);
+            conversationHistory.push({role: 'user', content: message});
+            
+            // Clear input
+            input.value = '';
+            
+            // Show typing indicator
+            isTyping = true;
+            showTypingIndicator();
+            
+            // Simulate API delay
+            setTimeout(() => {
+                removeTypingIndicator();
+                
+                // Get ELIA response
+                const responseData = getEliaResponse(message);
+                
+                // Handle different response formats
+                if (typeof responseData === 'string') {
+                    // Legacy format - simple string response
+                    addMessage(responseData, false, getRandomSuggestions(3));
+                } else {
+                    // Enhanced format - object with response, suggestions, and navigation
+                    addMessage(
+                        responseData.response, 
+                        false, 
+                        responseData.suggestions || [],
+                        responseData.navigation || null
+                    );
+                }
+                
+                conversationHistory.push({role: 'elia', content: responseData.response || responseData});
+                
+                isTyping = false;
+            }, 1500 + Math.random() * 1000); // Random delay between 1.5-2.5 seconds
+        }
+
+        function getRandomSuggestions(count) {
+            const shuffled = [...conversationStarters].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+
+        function showTypingIndicator() {
+            const messagesContainer = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message elia typing-indicator';
+            typingDiv.id = 'typingIndicator';
+              typingDiv.innerHTML = `
+                <div class="message-avatar" style="background-image: url('assets/ELIA HERO.png'); background-size: 70%; background-position: center; background-repeat: no-repeat; background-color: var(--primary-blue);"></div>
+                <div class="message-content">
+                    <div class="typing-indicator">
+                        <span>ELIA is thinking</span>
+                        <div class="typing-dots">
+                            <div class="typing-dot"></div>
+                            <div class="typing-dot"></div>
+                            <div class="typing-dot"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            messagesContainer.appendChild(typingDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) {
+                indicator.remove();
+            }
+        }        function sendQuickMessage(message) {
+            const input = document.getElementById('chatInput');
+            input.value = message;
+            // Don't reset depth here - let natural flow continue
+            sendMessage();
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage();
+            }
+        }        // Initialize ELIA
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('chatInput');
+            input.focus();
+            
+            console.log('ELIA Digital Assistant Initialized');
+            console.log('Ready to help with digital transformation stories and solutions!');
+        });
+
+        // Navigation JavaScript
+        document.getElementById('nav-toggle').addEventListener('click', function() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('nav-menu-active');
+        });
+    </script>
+</body>
+</html>

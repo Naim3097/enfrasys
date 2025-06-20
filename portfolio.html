@@ -1,214 +1,568 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Enfrasys</title>
-    <link rel="stylesheet" href="globaldesign.css">
+    <title>Portfolio - Case Studies & Success Stories | Enfrasys</title>    <meta name="description" content="Explore real-world digital transformation success stories across healthcare, government, education, and financial services in Malaysia.">    <link rel="stylesheet" href="globaldesign.css">
+    <link rel="stylesheet" href="portfolio-clean.css">
 </head>
 <body>
     <nav class="nav">
-        <a href="index.html" class="nav-brand">Enfrasys</a>
-        <ul class="nav-menu">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about.html" class="nav-link">About</a></li>
-            <li><a href="services.html" class="nav-link">Services</a></li>
-            <li><a href="products.html" class="nav-link">Products</a></li>
-            <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
-            <li><a href="team.html" class="nav-link">Team</a></li>
-            <li><a href="blog.html" class="nav-link">Blog</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-            <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
-            <li><a href="faq.html" class="nav-link">FAQ</a></li>
-            <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-            <li><a href="careers.html" class="nav-link">Careers</a></li>
-            <li><a href="news.html" class="nav-link">News</a></li>
-            <li><a href="events.html" class="nav-link">Events</a></li>
-            <li><a href="resources.html" class="nav-link">Resources</a></li>
-            <li><a href="support.html" class="nav-link">Support</a></li>
-        </ul>
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Enfrasys</a>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+            </ul>
+            <a href="contact.html" class="nav-cta">Contact</a>
+        </div>
     </nav>
 
     <main>
-        <section class="hero hero-secondary">
+        <!-- Hero Section -->
+        <section class="hero hero-gradient">
+            <div class="hero-overlay"></div>
             <div class="container">
-                <h1 class="hero-title">Our Portfolio</h1>
-                <p class="hero-subtitle">Successful AI implementations and case studies from our client projects</p>
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-text">Success Stories</span>
+                    </div>
+                    <h1 class="hero-title">Portfolio of Transformation</h1>
+                    <p class="hero-subtitle">Real-world digital transformation success stories delivering measurable business impact across Malaysia's leading organizations</p>
+                    <div class="hero-search">
+                        <div class="search-container">
+                            <input type="text" id="portfolio-search" placeholder="Search case studies by industry..." class="search-input">
+                            <button class="search-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        
+
+        <!-- Portfolio Stats -->
+        <section class="section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Proven Results</h2>
+                    <p class="section-subtitle">Our track record of successful digital transformations across industries</p>
+                </div>
+                
+                <div class="grid grid-4 gap-lg">
+                    <div class="card card-premium text-center fade-in">
+                        <div class="card-content">
+                            <div class="stat-number">14+</div>
+                            <div class="stat-label">Case Studies</div>
+                            <div class="stat-description">Documented success stories</div>
+                        </div>
+                    </div>
+                    <div class="card card-premium text-center fade-in">
+                        <div class="card-content">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Industries</div>
+                            <div class="stat-description">Sectors transformed</div>
+                        </div>
+                    </div>
+                    <div class="card card-premium text-center fade-in">
+                        <div class="card-content">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Success Rate</div>
+                            <div class="stat-description">Projects delivered on time</div>
+                        </div>
+                    </div>
+                    <div class="card card-premium text-center fade-in">
+                        <div class="card-content">
+                            <div class="stat-number">5,000+</div>
+                            <div class="stat-label">Users Impacted</div>
+                            <div class="stat-description">Lives improved through technology</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>        <!-- Industry Filter -->
+        <section class="section bg-accent">
+            <div class="container">
+                <div class="portfolio-filters">
+                    <div class="filter-header">
+                        <h3>Explore by Industry</h3>
+                        <p class="text-muted">Filter case studies by sector and solution type</p>
+                    </div>
+                    <div class="filter-tags">
+                        <button class="filter-tag active" data-filter="all">All Industries</button>
+                        <button class="filter-tag" data-filter="healthcare">Healthcare</button>
+                        <button class="filter-tag" data-filter="government">Government</button>
+                        <button class="filter-tag" data-filter="education">Education</button>
+                        <button class="filter-tag" data-filter="financial-services">Financial Services</button>
+                        <button class="filter-tag" data-filter="energy">Energy & Utilities</button>
+                        <button class="filter-tag" data-filter="entertainment">Entertainment</button>
+                        <button class="filter-tag" data-filter="telecommunications">Telecommunications</button>
+                    </div>
+                </div>
+            </div>
+        </section>        <!-- Featured Case Studies -->
         <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Case Studies</h2>
-                    <p class="section-subtitle">Real results from AI transformations across industries</p>
+                    <h2 class="section-title">Featured Success Stories</h2>
+                    <p class="section-subtitle">Highlighted transformations that showcase our expertise across diverse industries</p>
+                </div>                <div class="grid grid-2 gap-xl">
+                    <article class="card card-premium fade-in resource-item" data-industry="healthcare">
+                        <div class="card-header">
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="Healthcare System Merger" class="w-full rounded-lg mb-md">
+                            <div class="case-study-meta">
+                                <span class="badge">Healthcare</span>
+                                <span class="badge">System Integration</span>
+                            </div>
+                            <h3 class="card-title">Healthcare System Merger</h3>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-description">End-to-end digital transformation during large-scale healthcare system consolidation, ensuring business continuity while migrating critical patient data systems.</p>
+                            <div class="case-study-metrics">
+                                <div class="metric">
+                                    <span class="metric-value">5</span>
+                                    <span class="metric-label">Facilities Unified</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">800+</span>
+                                    <span class="metric-label">Staff Trained</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="case-study-healthcare-merger.html" class="btn btn-primary">Read Case Study</a>
+                        </div>
+                    </article>
+
+                    <article class="card card-premium fade-in resource-item" data-industry="government">
+                        <div class="card-header">
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="Government Ministry Migration" class="w-full rounded-lg mb-md">
+                            <div class="case-study-meta">
+                                <span class="badge">Government</span>
+                                <span class="badge">Cloud Migration</span>
+                            </div>
+                            <h3 class="card-title">Government Ministry Migration</h3>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-description">Comprehensive Microsoft 365 migration for a major government ministry, enhancing collaboration and security across multiple departments.</p>
+                            <div class="case-study-metrics">
+                                <div class="metric">
+                                    <span class="metric-value">500+</span>
+                                    <span class="metric-label">Users Migrated</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">100%</span>
+                                    <span class="metric-label">Uptime</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="case-study-government-migration.html" class="btn btn-primary">Read Case Study</a>
+                        </div>
+                    </article>
                 </div>
-                
-                <div class="grid grid-2 gap-xl">
-                    <div class="card">
+            </div>
+        </section>
+
+        <!-- All Case Studies -->
+        <section class="section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">All Case Studies</h2>
+                    <p class="section-subtitle">Browse our complete portfolio of successful digital transformations</p>
+                </div>                <div class="grid grid-3 gap-lg">
+                    <!-- Healthcare -->
+                    <article class="card resource-item" data-industry="healthcare">
                         <div class="card-header">
-                            <img src="https://via.placeholder.com/500x250/213150/ffffff?text=Healthcare+AI" alt="Healthcare AI" class="w-full rounded-lg mb-md">
-                            <div class="flex items-center gap-sm mb-sm">
-                                <span class="badge badge-primary">Healthcare</span>
-                                <span class="badge badge-success">AI Implementation</span>
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="Healthcare System Merger" class="w-full rounded-lg mb-md">
+                            <div class="resource-meta">
+                                <span class="industry-tag">Healthcare</span>
                             </div>
-                            <h3>AI-Powered Diagnostic System</h3>
+                            <h3>Healthcare System Merger</h3>
                         </div>
                         <div class="card-content">
-                            <p>Implemented machine learning algorithms to improve diagnostic accuracy by 35% at a major healthcare provider, reducing patient wait times and improving outcomes.</p>
-                            <ul class="list-unstyled mt-md">
-                                <li>• 35% improvement in diagnostic accuracy</li>
-                                <li>• 50% reduction in processing time</li>
-                                <li>• $2M annual cost savings</li>
-                            </ul>
+                            <p>Large-scale consolidation with Microsoft 365 migration across 5 facilities.</p>
                         </div>
                         <div class="card-footer">
-                            <a href="contact.html" class="btn btn-outline">Learn More</a>
+                            <a href="case-study-healthcare-merger.html" class="btn btn-outline btn-sm">View Details</a>
                         </div>
-                    </div>
-                    
-                    <div class="card">
+                    </article>
+
+                    <article class="card resource-item" data-industry="healthcare">
                         <div class="card-header">
-                            <img src="https://via.placeholder.com/500x250/2a417c/ffffff?text=Financial+Analytics" alt="Financial Analytics" class="w-full rounded-lg mb-md">
-                            <div class="flex items-center gap-sm mb-sm">
-                                <span class="badge badge-secondary">Finance</span>
-                                <span class="badge badge-warning">Data Analytics</span>
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="Medical Imaging Center" class="w-full rounded-lg mb-md">
+                            <div class="resource-meta">
+                                <span class="industry-tag">Healthcare</span>
                             </div>
-                            <h3>Real-Time Risk Assessment Platform</h3>
+                            <h3>Medical Imaging Center</h3>
                         </div>
                         <div class="card-content">
-                            <p>Developed a comprehensive risk assessment platform for a leading financial institution, enabling real-time fraud detection and risk scoring.</p>
-                            <ul class="list-unstyled mt-md">
-                                <li>• 70% reduction in fraud losses</li>
-                                <li>• Real-time transaction monitoring</li>
-                                <li>• 99.9% system uptime</li>
-                            </ul>
+                            <p>AI-powered medical imaging solution improving diagnostic accuracy and speed.</p>
                         </div>
                         <div class="card-footer">
-                            <a href="contact.html" class="btn btn-outline">Learn More</a>
+                            <a href="case-study-medical-imaging.html" class="btn btn-outline btn-sm">View Details</a>
                         </div>
-                    </div>
-                    
-                    <div class="card">
+                    </article>
+
+                    <article class="card resource-item" data-industry="healthcare">
                         <div class="card-header">
-                            <img src="https://via.placeholder.com/500x250/1a2545/ffffff?text=Manufacturing+IoT" alt="Manufacturing IoT" class="w-full rounded-lg mb-md">
-                            <div class="flex items-center gap-sm mb-sm">
-                                <span class="badge badge-info">Manufacturing</span>
-                                <span class="badge badge-danger">IoT & Analytics</span>
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="Medical Centre Modernization" class="w-full rounded-lg mb-md">
+                            <div class="resource-meta">
+                                <span class="industry-tag">Healthcare</span>
                             </div>
-                            <h3>Smart Manufacturing Optimization</h3>
+                            <h3>Medical Centre Modernization</h3>
                         </div>
                         <div class="card-content">
-                            <p>Implemented IoT sensors and predictive analytics to optimize production lines, reducing downtime and improving efficiency for a global manufacturer.</p>
-                            <ul class="list-unstyled mt-md">
-                                <li>• 40% reduction in unplanned downtime</li>
-                                <li>• 25% increase in production efficiency</li>
-                                <li>• $5M annual savings</li>
-                            </ul>
+                            <p>Modern workplace transformation for improved patient service delivery.</p>
                         </div>
                         <div class="card-footer">
-                            <a href="contact.html" class="btn btn-outline">Learn More</a>
+                            <a href="case-study-medical-centre.html" class="btn btn-outline btn-sm">View Details</a>
                         </div>
-                    </div>
-                    
-                    <div class="card">
+                    </article>
+
+                    <!-- Government -->
+                    <article class="card resource-item" data-industry="government">
                         <div class="card-header">
-                            <img src="https://via.placeholder.com/500x250/b9e8f9/213150?text=Retail+Personalization" alt="Retail AI" class="w-full rounded-lg mb-md">
-                            <div class="flex items-center gap-sm mb-sm">
-                                <span class="badge badge-success">Retail</span>
-                                <span class="badge badge-primary">Personalization</span>
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="Ministry Migration" class="w-full rounded-lg mb-md">
+                            <div class="resource-meta">
+                                <span class="industry-tag">Government</span>
                             </div>
-                            <h3>AI-Driven Customer Personalization</h3>
+                            <h3>Ministry Migration</h3>
                         </div>
                         <div class="card-content">
-                            <p>Built a personalization engine that analyzes customer behavior to deliver targeted recommendations, increasing conversion rates and customer satisfaction.</p>
-                            <ul class="list-unstyled mt-md">
-                                <li>• 45% increase in conversion rates</li>
-                                <li>• 60% improvement in customer engagement</li>
-                                <li>• 30% boost in average order value</li>
-                            </ul>
+                            <p>Comprehensive Microsoft 365 migration with enhanced security and compliance.</p>
                         </div>
                         <div class="card-footer">
-                            <a href="contact.html" class="btn btn-outline">Learn More</a>
+                            <a href="case-study-government-migration.html" class="btn btn-outline btn-sm">View Details</a>
                         </div>
-                    </div>
+                    </article>                    <article class="card resource-item" data-industry="government">
+                        <div class="card-header">
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="Government Communications" class="w-full rounded-lg mb-md">
+                            <div class="resource-meta">
+                                <span class="industry-tag">Government</span>
+                            </div>
+                            <h3>Government Communications</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Unified communications platform for seamless interdepartmental collaboration.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="case-study-government-comms.html" class="btn btn-outline btn-sm">View Details</a>
+                        </div>
+                    </article>
+
+                    <article class="card resource-item" data-industry="government">
+                        <div class="card-header">
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="FSI Transformation" class="w-full rounded-lg mb-md">
+                            <div class="resource-meta">
+                                <span class="industry-tag">Government</span>
+                            </div>
+                            <h3>FSI Transformation</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Digital transformation for government financial services institution.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="case-study-government-fsi.html" class="btn btn-outline btn-sm">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Education -->
+                    <article class="card resource-item" data-industry="education">
+                        <div class="card-header">
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="University Scale-out" class="w-full rounded-lg mb-md">
+                            <div class="resource-meta">
+                                <span class="industry-tag">Education</span>
+                            </div>
+                            <h3>University Scale-out</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Massive infrastructure scaling to support growing student population.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="case-study-university-scale.html" class="btn btn-outline btn-sm">View Details</a>
+                        </div>
+                    </article>
+
+                    <article class="card resource-item" data-industry="education">
+                        <div class="card-header">
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="MOE Schools Network" class="w-full rounded-lg mb-md">
+                            <div class="resource-meta">
+                                <span class="industry-tag">Education</span>
+                            </div>
+                            <h3>MOE Schools Network</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Digital transformation across multiple Ministry of Education schools.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="case-study-moe-schools.html" class="btn btn-outline btn-sm">View Details</a>
+                        </div>
+                    </article>
+
+                    <article class="card resource-item" data-industry="education">
+                        <div class="card-header">
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="International School" class="w-full rounded-lg mb-md">
+                            <div class="resource-meta">
+                                <span class="industry-tag">Education</span>
+                            </div>
+                            <h3>International School</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Modern workplace transformation for enhanced teaching and learning.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="case-study-international-school.html" class="btn btn-outline btn-sm">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Other Industries -->
+                    <article class="card resource-item" data-industry="financial-services">
+                        <div class="card-header">
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="Finance AI Solution" class="w-full rounded-lg mb-md">
+                            <div class="resource-meta">
+                                <span class="industry-tag">Finance</span>
+                            </div>
+                            <h3>Finance AI Solution</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>AI-powered financial analytics and decision support system.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="case-study-finance-ai.html" class="btn btn-outline btn-sm">View Details</a>
+                        </div>
+                    </article>                    <article class="card resource-item" data-industry="telecommunications">
+                        <div class="card-header">
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="Telecom Data Platform" class="w-full rounded-lg mb-md">
+                            <div class="resource-meta">
+                                <span class="industry-tag">Telecom</span>
+                            </div>
+                            <h3>Telecom Data Platform</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Advanced data analytics platform for network optimization.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="case-study-telecom-data.html" class="btn btn-outline btn-sm">View Details</a>
+                        </div>
+                    </article>
+
+                    <article class="card resource-item" data-industry="property">
+                        <div class="card-header">
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="Property Tech Solution" class="w-full rounded-lg mb-md">
+                            <div class="resource-meta">
+                                <span class="industry-tag">Property</span>
+                            </div>
+                            <h3>Property Tech Solution</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Digital transformation of property management and sales processes.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="case-study-property.html" class="btn btn-outline btn-sm">View Details</a>
+                        </div>
+                    </article>
+
+                    <article class="card resource-item" data-industry="energy">
+                        <div class="card-header">
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="Energy Disaster Recovery" class="w-full rounded-lg mb-md">
+                            <div class="resource-meta">
+                                <span class="industry-tag">Energy</span>
+                            </div>
+                            <h3>Energy Disaster Recovery</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Mission-critical disaster recovery infrastructure for energy sector.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="case-study-energy-dr.html" class="btn btn-outline btn-sm">View Details</a>
+                        </div>
+                    </article>
+
+                    <article class="card resource-item" data-industry="entertainment">
+                        <div class="card-header">
+                            <div class="resource-type-badge portfolio">Case Study</div>
+                            <img src="assets/tbc.jpg" alt="Entertainment Platform" class="w-full rounded-lg mb-md">
+                            <div class="resource-meta">
+                                <span class="industry-tag">Entertainment</span>
+                            </div>
+                            <h3>Entertainment Platform</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Scalable streaming platform with AI-powered recommendations.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="case-study-entertainment.html" class="btn btn-outline btn-sm">View Details</a>
+                        </div>
+                    </article>
                 </div>
-                
-                <div class="text-center mt-xl">
-                    <h3 class="mb-md">Ready to start your AI transformation?</h3>
-                    <p class="mb-lg">Let's discuss how we can help you achieve similar results.</p>
-                    <div class="flex justify-center gap-md">
-                        <a href="contact.html" class="btn btn-primary btn-lg">Start Your Project</a>
-                        <a href="testimonials.html" class="btn btn-secondary btn-lg">Read Testimonials</a>
+            </div>
+        </section>
+        </section>        <!-- Call to Action -->
+        <section class="section">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="hero-title">Ready to Transform Your Business?</h2>
+                    <p class="hero-subtitle">Join the growing list of successful organizations that have transformed with Enfrasys. Let's discuss your unique challenges and create a tailored solution.</p>
+                    <div class="btn-group justify-center">
+                        <a href="contact.html" class="btn btn-accent btn-lg">Start Your Journey</a>
+                        <a href="services.html" class="btn btn-secondary btn-lg">Explore Services</a>
+                        <a href="about.html" class="btn btn-outline btn-lg">About Enfrasys</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="section bg-dark text-light">
+    <footer class="footer">
         <div class="container">
-            <div class="text-center">
+            <div class="grid grid-4 gap-lg">
+                <div>
+                    <h4 class="footer-title">Enfrasys</h4>
+                    <p class="footer-text">Leading Malaysian technology partner specializing in digital transformation solutions powered by AI, cloud, modern workplace productivity, and security.</p>
+                </div>
+                <div>
+                    <h5 class="footer-subtitle">Solutions</h5>
+                    <ul class="footer-links">
+                        <li><a href="products.html">Digital Products</a></li>
+                        <li><a href="services.html">Professional Services</a></li>
+                        <li><a href="portfolio.html">Case Studies</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="footer-subtitle">Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="news.html">News</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="footer-subtitle">Support</h5>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
                 <p>&copy; 2025 Enfrasys. All rights reserved.</p>
-                <div class="flex justify-center gap-md mt-sm">
-                    <a href="privacy.html" class="text-light">Privacy Policy</a>
-                    <a href="terms.html" class="text-light">Terms of Service</a>
-                    <a href="sitemap.html" class="text-light">Sitemap</a>
-                </div>
             </div>
         </div>
     </footer>
-</body>
-</html>
-            <div class="container">
-                <h1>Our Portfolio</h1>
-                <p>Showcase of our best work</p>
-            </div>
-        </section>
-        
-        <section class="content">
-            <div class="container">
-                <h2>Featured Projects</h2>
-                <p>This is the portfolio page content. Replace this with your actual portfolio content. This is page 4 of 20 pages.</p>
-                
-                <div class="portfolio-grid">
-                    <div class="portfolio-item">
-                        <div class="portfolio-image"></div>
-                        <div class="portfolio-content">
-                            <h3>Project 1</h3>
-                            <p>Description of your first project.</p>
-                        </div>
-                    </div>
-                    <div class="portfolio-item">
-                        <div class="portfolio-image"></div>
-                        <div class="portfolio-content">
-                            <h3>Project 2</h3>
-                            <p>Description of your second project.</p>
-                        </div>
-                    </div>
-                    <div class="portfolio-item">
-                        <div class="portfolio-image"></div>
-                        <div class="portfolio-content">
-                            <h3>Project 3</h3>
-                            <p>Description of your third project.</p>
-                        </div>
-                    </div>
-                    <div class="portfolio-item">
-                        <div class="portfolio-image"></div>
-                        <div class="portfolio-content">
-                            <h3>Project 4</h3>
-                            <p>Description of your fourth project.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Your Website. All rights reserved.</p>
-        </div>
-    </footer>
+    <script src="js/navigation.js"></script>
+    <script>
+        // Portfolio filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterTags = document.querySelectorAll('.filter-tag');
+            const caseStudyCards = document.querySelectorAll('[data-industry]');
+            const industrySections = document.querySelectorAll('[data-industry-section]');
+            const searchInput = document.getElementById('portfolio-search');
+
+            // Filter by industry
+            filterTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active tag
+                    filterTags.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter cards and sections
+                    if (filter === 'all') {
+                        caseStudyCards.forEach(card => card.classList.remove('hidden'));
+                        industrySections.forEach(section => section.classList.remove('hidden'));
+                    } else {
+                        caseStudyCards.forEach(card => {
+                            if (card.getAttribute('data-industry') === filter) {
+                                card.classList.remove('hidden');
+                            } else {
+                                card.classList.add('hidden');
+                            }
+                        });
+                        
+                        industrySections.forEach(section => {
+                            if (section.getAttribute('data-industry-section') === filter || section.getAttribute('data-industry-section') === 'other') {
+                                section.classList.remove('hidden');
+                            } else {
+                                section.classList.add('hidden');
+                            }
+                        });
+                    }
+                });
+            });
+
+            // Search functionality
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    caseStudyCards.forEach(card => {
+                        const title = card.querySelector('.card-title').textContent.toLowerCase();
+                        const description = card.querySelector('.card-description').textContent.toLowerCase();
+                        const tags = Array.from(card.querySelectorAll('.tag, .industry-tag, .solution-tag'))
+                            .map(tag => tag.textContent.toLowerCase()).join(' ');
+                        
+                        if (title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm)) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
+            }
+
+            // Animate cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
+

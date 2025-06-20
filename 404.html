@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,35 +6,31 @@
     <title>404 - Page Not Found - Enfrasys</title>
     <link rel="stylesheet" href="globaldesign.css">
 </head>
-<body>
-    <nav class="nav">
-        <a href="index.html" class="nav-brand">Enfrasys</a>
-        <ul class="nav-menu">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about.html" class="nav-link">About</a></li>
-            <li><a href="services.html" class="nav-link">Services</a></li>
-            <li><a href="products.html" class="nav-link">Products</a></li>
-            <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-            <li><a href="team.html" class="nav-link">Team</a></li>
-            <li><a href="blog.html" class="nav-link">Blog</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-            <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
-            <li><a href="faq.html" class="nav-link">FAQ</a></li>
-            <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-            <li><a href="careers.html" class="nav-link">Careers</a></li>
-            <li><a href="news.html" class="nav-link">News</a></li>
-            <li><a href="events.html" class="nav-link">Events</a></li>
-            <li><a href="resources.html" class="nav-link">Resources</a></li>
-            <li><a href="support.html" class="nav-link">Support</a></li>
-        </ul>
+<body>        <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Enfrasys</a>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="news.html" class="nav-link">News</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="contact.html" class="nav-link nav-cta">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
     <main>
         <section class="hero hero-secondary">
-            <div class="container text-center">
-                <div class="error-visual mb-xl">
+            <div class="container text-center">                <div class="error-visual mb-xl">
                     <h1 class="display-1 text-primary">404</h1>
-                    <div class="text-6xl mb-md">🤖💔</div>
                 </div>
                 
                 <h1 class="hero-title">AI Page Not Found</h1>
@@ -42,7 +38,7 @@
             </div>
         </section>
         
-        <section class="section">
+        <section class="section fade-in">
             <div class="container">
                 <div class="grid grid-1">
                     <div class="card text-center">
@@ -76,12 +72,12 @@
                     </div>
                     
                     <div class="grid grid-3">
-                        <div class="card">
+                        <div class="card card-premium fade-in">
                             <div class="card-header">
                                 <span class="badge badge-primary">Most Popular</span>
                             </div>
                             <div class="card-content">
-                                <h3>🏠 Main Pages</h3>
+                                <h3>Main Pages</h3>
                                 <ul class="list-styled">
                                     <li><a href="index.html">Home - AI Solutions Overview</a></li>
                                     <li><a href="products.html">AI Products & Platform</a></li>
@@ -91,12 +87,12 @@
                             </div>
                         </div>
                         
-                        <div class="card">
+                        <div class="card card-premium fade-in">
                             <div class="card-header">
                                 <span class="badge badge-secondary">Resources</span>
                             </div>
                             <div class="card-content">
-                                <h3>📚 Documentation</h3>
+                                <h3>Documentation</h3>
                                 <ul class="list-styled">
                                     <li><a href="resources.html">AI Development Resources</a></li>
                                     <li><a href="blog.html">AI Insights & Tutorials</a></li>
@@ -106,12 +102,12 @@
                             </div>
                         </div>
                         
-                        <div class="card">
+                        <div class="card card-premium fade-in">
                             <div class="card-header">
                                 <span class="badge badge-accent">Get Help</span>
                             </div>
                             <div class="card-content">
-                                <h3>🤝 Support Options</h3>
+                                <h3>Support Options</h3>
                                 <ul class="list-styled">
                                     <li><a href="contact.html">Contact Our AI Experts</a></li>
                                     <li><a href="support.html">Technical Support Center</a></li>
@@ -124,7 +120,7 @@
                 </div>
 
                 <div class="mt-xl">
-                    <div class="card">
+                    <div class="card card-premium fade-in">
                         <div class="card-content text-center">
                             <h3>Still Can't Find What You're Looking For?</h3>
                             <p class="text-lg mb-lg">Our AI-powered support team is here to help you find exactly what you need</p>
@@ -138,27 +134,22 @@
                 </div>
 
                 <div class="mt-xl">
-                    <div class="card">
+                    <div class="card card-premium fade-in">
                         <div class="card-header">
-                            <h3>🔍 AI-Powered Search Suggestions</h3>
+                            <h3>Search Suggestions</h3>
                         </div>
                         <div class="card-content">
-                            <p class="mb-md">Based on your navigation pattern, you might be interested in:</p>
-                            <div class="grid grid-4">
+                            <p class="mb-md">Based on your navigation pattern, you might be interested in:</p>                            <div class="grid grid-4">
                                 <div class="text-center">
-                                    <div class="text-2xl mb-sm">🤖</div>
                                     <a href="products.html" class="btn btn-sm btn-outline">AI Platform</a>
                                 </div>
                                 <div class="text-center">
-                                    <div class="text-2xl mb-sm">📊</div>
                                     <a href="portfolio.html" class="btn btn-sm btn-outline">Case Studies</a>
                                 </div>
                                 <div class="text-center">
-                                    <div class="text-2xl mb-sm">🎯</div>
                                     <a href="services.html" class="btn btn-sm btn-outline">Consulting</a>
                                 </div>
                                 <div class="text-center">
-                                    <div class="text-2xl mb-sm">📖</div>
                                     <a href="resources.html" class="btn btn-sm btn-outline">Documentation</a>
                                 </div>
                             </div>
@@ -207,7 +198,13 @@
             <div class="footer-bottom">
                 <p>&copy; 2025 Enfrasys. All rights reserved.</p>
             </div>
-        </div>
-    </footer>
+        </div>    </footer>
+
+        <!-- Navigation JavaScript -->
+    <script src="js/navigation.js"></script>
 </body>
 </html>
+
+
+
+

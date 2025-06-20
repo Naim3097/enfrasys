@@ -1,0 +1,495 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Data Centre AI Tour - Enfrasys Events</title>
+    <meta name="description" content="Following Microsoft's US$2.2 billion investment in Malaysia, join us for exclusive insights into the new data centre capabilities and AI-powered cloud solutions.">    <link rel="stylesheet" href="globaldesign.css">
+    <style>
+        /* Event Page Standardized Styles */
+        .event-page {
+            padding: 0;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content .breadcrumb {
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .hero-content .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.2;
+        }
+        
+        .hero-content .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.95;
+        }
+        
+        .hero-badges {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .hero-meta {
+            font-size: var(--text-sm);
+            color: var(--color-white);
+            opacity: 0.85;
+        }
+        
+        .event-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .event-header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: var(--color-white);
+            padding: var(--spacing-xl);
+            text-align: center;
+        }
+        
+        .event-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-white);
+        }
+        
+        .event-header .event-subtitle {
+            font-size: 1.125rem;
+            opacity: 0.95;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .event-details {
+            padding: var(--spacing-xl);
+        }
+        
+        .event-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .event-info-item {
+            text-align: center;
+            padding: var(--spacing-lg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            background: var(--color-background-light);
+        }
+        
+        .event-info-item h3 {
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .event-description {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: var(--spacing-xl);
+            color: var(--color-text);
+        }
+        
+        .event-highlights {
+            background: var(--color-background-light);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .event-highlights h3 {
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .highlight-item {
+            padding: var(--spacing-md);
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--color-primary);
+        }
+        
+        .highlight-item h4 {
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .event-rsvp {
+            background: linear-gradient(135deg, var(--color-success) 0%, var(--color-success-dark) 100%);
+            color: var(--color-white);
+            padding: var(--spacing-xl);
+            text-align: center;
+        }
+        
+        .rsvp-status {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius-full);
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .rsvp-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-lg);
+        }
+        
+        .btn-white {
+            background: var(--color-white);
+            color: var(--color-primary);
+            border: none;
+        }
+        
+        .btn-white:hover {
+            background: var(--color-background-light);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-white {
+            background: transparent;
+            color: var(--color-white);
+            border: 2px solid var(--color-white);
+        }
+        
+        .btn-outline-white:hover {
+            background: var(--color-white);
+            color: var(--color-primary);
+        }
+        
+        .event-summary {
+            padding: var(--spacing-xl);
+            background: var(--color-background-light);
+        }
+        
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: var(--spacing-lg);
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--color-text-muted);
+            font-size: var(--text-sm);
+            margin-top: var(--spacing-xs);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content .hero-title {
+                font-size: 2rem;
+            }
+            
+            .event-header h1 {
+                font-size: 2rem;
+            }
+            
+            .rsvp-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .rsvp-actions .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+            <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Enfrasys</a>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="blog.html" class="nav-link active">Blog</a></li>
+            </ul>
+            <a href="contact.html" class="nav-cta">Contact</a>
+        </div>
+    </nav>    <main class="event-page">
+        <section class="hero hero-gradient">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="breadcrumb">
+                        <a href="index.html">Home</a> / <a href="events.html">Events</a> / <span>Microsoft Data Centre AI Tour</span>
+                    </div>
+                    <h1 class="hero-title">Microsoft Data Centre AI Tour</h1>
+                    <p class="hero-subtitle">Exclusive insights into Malaysia's new data centre capabilities and AI-powered cloud solutions</p>
+                    <div class="hero-badges">
+                        <span class="badge badge-primary">Conference</span>
+                        <span class="badge badge-secondary">Microsoft Partnership</span>
+                        <span class="badge badge-success">Cloud Infrastructure</span>
+                    </div>
+                    <div class="hero-meta">
+                        <time>Coming Soon 2025</time> • <span>Malaysia</span> • <span>Registration TBA</span>
+                    </div>
+                </div>
+            </div>
+        </section>        <section class="section">
+            <div class="container">
+                <div class="max-width-4xl mx-auto">
+                    <div class="event-card">
+                        <div class="event-header">
+                            <h1>Microsoft Data Centre AI Tour</h1>
+                            <p class="event-subtitle">Be part of Malaysia's digital infrastructure revolution with Microsoft's historic US$2.2 billion investment</p>
+                        </div>
+                        
+                        <div class="event-details">
+                            <div class="event-info-grid">
+                                <div class="event-info-item">
+                                    <h3>Investment Scale</h3>
+                                    <p>US$2.2 billion - Microsoft's largest infrastructure investment in Southeast Asia</p>
+                                </div>
+                                <div class="event-info-item">
+                                    <h3>Tour Format</h3>
+                                    <p>Exclusive half-day comprehensive facility tour with networking opportunities</p>
+                                </div>
+                                <div class="event-info-item">
+                                    <h3>Target Audience</h3>
+                                    <p>IT leaders, CTOs, business executives, government officials, technology enthusiasts</p>
+                                </div>
+                            </div>
+                            
+                            <div class="event-description">
+                                <p>The Microsoft Data Centre AI Tour offers unprecedented access to the facilities, technologies, and innovations that will power Malaysia's digital future. This landmark investment will establish Malaysia as a critical hub for cloud computing and artificial intelligence innovation in Southeast Asia.</p>
+                            </div>
+                            
+                            <div class="event-highlights">
+                                <h3>Key Investment Highlights</h3>
+                                <div class="highlight-grid">
+                                    <div class="highlight-item">
+                                        <h4>Infrastructure Development</h4>
+                                        <ul>
+                                            <li>State-of-the-art data centre facilities</li>
+                                            <li>Advanced cloud computing infrastructure</li>
+                                            <li>High-speed connectivity networks</li>
+                                            <li>Sustainable energy solutions</li>
+                                        </ul>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <h4>Economic Impact</h4>
+                                        <ul>
+                                            <li>2,500+ direct job opportunities</li>
+                                            <li>Local talent development programs</li>
+                                            <li>Technology ecosystem growth</li>
+                                            <li>Digital transformation acceleration</li>
+                                        </ul>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <h4>Technology Focus Areas</h4>
+                                        <ul>
+                                            <li>Artificial Intelligence infrastructure</li>
+                                            <li>Hybrid cloud architectures</li>
+                                            <li>Real-time data processing</li>
+                                            <li>Zero-trust security architecture</li>
+                                        </ul>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <h4>Industry Transformation</h4>
+                                        <ul>
+                                            <li>Enhanced digital banking and fintech</li>
+                                            <li>AI-powered medical research</li>
+                                            <li>Smart factory automation</li>
+                                            <li>Digital governance initiatives</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="event-highlights">
+                                <h3>Tour Program Overview</h3>
+                                <div class="highlight-grid">
+                                    <div class="highlight-item">
+                                        <h4>Infrastructure Overview</h4>
+                                        <p>Introduction to Microsoft's data centre architecture, sustainability initiatives, and operational excellence standards.</p>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <h4>AI & Cloud Capabilities</h4>
+                                        <p>Demonstration of advanced AI processing capabilities, machine learning infrastructure, and cloud service delivery mechanisms.</p>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <h4>Security & Compliance</h4>
+                                        <p>Exploring world-class security protocols, compliance frameworks, and data protection measures.</p>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <h4>Innovation Lab Experience</h4>
+                                        <p>Hands-on experience with cutting-edge technologies and emerging solutions for the Malaysian market.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="event-rsvp">
+                            <span class="rsvp-status">Registration Opening Soon</span>
+                            <h3>Limited Spots Available</h3>
+                            <p>Be the first to know when registration opens for this exclusive tour experience. Small groups ensure personalized experience and meaningful interaction with Microsoft's data centre innovations.</p>
+                            <div class="rsvp-actions">
+                                <a href="contact.html" class="btn btn-white">Notify Me When Registration Opens</a>
+                                <a href="services.html" class="btn btn-outline-white">Our Cloud Services</a>
+                            </div>
+                        </div>
+                        
+                        <div class="event-summary">
+                            <h3 class="text-center mb-lg">Investment Impact</h3>
+                            <div class="summary-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">$2.2B</span>
+                                    <span class="stat-label">Microsoft Investment</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">2,500+</span>
+                                    <span class="stat-label">Job Opportunities</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">4</span>
+                                    <span class="stat-label">Core Technology Areas</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">Multiple</span>
+                                    <span class="stat-label">Industries Transformed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Events -->
+        <section class="section bg-light">
+            <div class="container">
+                <div class="max-width-4xl mx-auto">
+                    <h2 class="text-center mb-xl">Related Events</h2>
+                    <div class="grid grid-3 gap-lg">
+                        <article class="card">
+                            <div class="card-content">
+                                <h4>Cloud-First Imperative Webinar</h4>
+                                <p>Microsoft Data Center Launch Readiness insights and strategies.</p>
+                                <a href="events-cloud-first-webinar.html" class="btn btn-outline btn-sm mt-md">View Details</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-content">
+                                <h4>Security Awareness Webinar</h4>
+                                <p>Best practices for Microsoft 365 admin access and security.</p>
+                                <a href="events-security-webinar.html" class="btn btn-outline btn-sm mt-md">Register</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-content">
+                                <h4>Enfrasys Raya Open House 2025</h4>
+                                <p>Celebrate with our team and partners in a festive atmosphere.</p>
+                                <a href="events-raya-open-house.html" class="btn btn-outline btn-sm mt-md">RSVP</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <footer class="footer">
+        <div class="container">
+            <div class="grid grid-4">
+                <div>
+                    <h4>Enfrasys</h4>
+                    <p class="text-sm">Leading Malaysian technology partner specializing in digital transformation solutions powered by AI, cloud, modern workplace productivity, and security.</p>
+                </div>
+                <div>
+                    <h5>Solutions</h5>
+                    <ul class="footer-links">
+                        <li><a href="products.html">Digital Products</a></li>
+                        <li><a href="services.html">Professional Services</a></li>
+                        <li><a href="portfolio.html">Case Studies</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="resources.html">News</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Connect</h5>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Events</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Enfrasys. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+        <!-- Navigation JavaScript -->
+    <script src="js/navigation.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
